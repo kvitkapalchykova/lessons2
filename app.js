@@ -1,11 +1,12 @@
-// console.log('Hello World); 
+const projectName = 'сайт магазину';
+const price = 2000;
+const author = 'Світлана Пальчикова'; 
+const template = author  + ' замовила ' +   projectName + ' за ціною ' + price + '$'
+console.log(template);
 
-const badGirl = 'Fleur'; 
+const template2 = `${author} замовила ${projectName} за ціною ${price}$`;
+console.log(template2);
 
-let goodBoy = 'Finger';
-
-let Hello
-
-Hello = 1
-
-console.log(Hello)
+const template3 = `Проєкт
+Вартість: ${price}$`;
+console.log(template3);
