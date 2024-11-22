@@ -1,12 +1,10 @@
-const projectName = 'сайт магазину';
-const price = 2000;
-const author = 'Світлана Пальчикова'; 
-const template = author  + ' замовила ' +   projectName + ' за ціною ' + price + '$'
-console.log(template);
+const money = 10;
 
-const template2 = `${author} замовила ${projectName} за ціною ${price}$`;
-console.log(template2);
-
-const template3 = `Проєкт
-Вартість: ${price}$`;
-console.log(template3);
+if (money > 50) {
+    console.log('Можна купити наш товар');
+} else if (money > 55) {
+    console.log('Купили міні товар');
+} else {
+    console.log('Не вистачає коштів');
+}
+console.log('Результат');
