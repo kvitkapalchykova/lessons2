@@ -1,10 +1,10 @@
-const money = 10;
+const money = 20;
+const praise = 10;
 
-if (money >= 10) {
+if (money >= praise) {
     console.log('Можна купити наш товар');
-} else if (money > 5) {
-    console.log('Купили міні товар');
-} else {
+} 
+else if (money < praise) {
     console.log('Не вистачає коштів');
 }
 console.log('Результат');
