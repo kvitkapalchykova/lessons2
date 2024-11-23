@@ -1,10 +1,12 @@
-const money = 20;
-const praise = 10;
+const num = 1;
 
-if (money >= praise) {
-    console.log('Можна купити наш товар');
-} 
-else if (money < praise) {
-    console.log('Не вистачає коштів');
+switch(true){
+    case num > 0:
+        console.log('Позитивний');
+        break;
+    case num < 0:
+        console.log('Негативний');
+        break;
+    default:
+        console.log('Нуль!');        
 }
-console.log('Результат');
