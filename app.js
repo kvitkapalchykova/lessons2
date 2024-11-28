@@ -1,20 +1,18 @@
 /*
-Користувач хоче придбати гру в магазині.
-Він може це зробити якщо :
-- Його баланс більше 1000 (balance)
-або має бонусів більше 100 (bonusBalance)
-- Він не заблокований (isBanned)
-- Гра ще не придбана (isExist)
-- Гра є у продажу (isSelling)
+Моя погодинна ставка 80$ також я згодна працювати не більше 5 годин в тиждень (окрім вихідних).
+Мені запропонували виконати замовлення на 40 робочих годин.
+Сьогодні понеділок.
+Я маю поїхати через 11 днів.
+Вивести в консоль:
+- Boolean змінну чи встигну я взятися за дане замовлення.
+- Яка вартість замовлення?
 */
-const balance = 1200
-const bonusBalance = 90
-const isBanned = false
-const isExist = false
-const isSelling = true
 
-const canBuy = (balance > 1000 || bonusBalance > 100) 
-&& !isBanned 
-&& !isExist 
-&& isSelling
-console.log(`Можу купити: ${canBuy ? 'Так' : 'Ні'}`)
+// Дані
+const payRateUSD = 80;
+const projectHours = 40;
+const availableHours = (11 - 2) * 5;
+
+// Результат
+console.log('Чи зможу я працювати?' + (availableHours > projectHours));
+console.log('Вартість замовлення:' + projectHours * payRateUSD + '$');
