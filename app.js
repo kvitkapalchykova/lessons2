@@ -1,18 +1,15 @@
-/*
-Моя погодинна ставка 80$ також я згодна працювати не більше 5 годин в тиждень (окрім вихідних).
-Мені запропонували виконати замовлення на 40 робочих годин.
-Сьогодні понеділок.
-Я маю поїхати через 11 днів.
-Вивести в консоль:
-- Boolean змінну чи встигну я взятися за дане замовлення.
-- Яка вартість замовлення?
-*/
+function logName(name, surname){
+    console.log(`Моє ім'я ${name} ${surname}`);
+}
+logName('Світлана', 'Пальчикова');
 
-// Дані
-const payRateUSD = 80;
-const projectHours = 40;
-const availableHours = (11 - 2) * 5;
+function countDepositSum(depositInUSD, month, rate){
+    const sum = depositInUSD * (1 + rate / 12) ** month;
+    return sum;
+}
 
-// Результат
-console.log('Чи зможу я працювати?' + (availableHours > projectHours));
-console.log('Вартість замовлення:' + projectHours * payRateUSD + '$');
+const example1 = countDepositSum(1000, 24, 0.12);
+console.log(example1);
+
+console.log(countDepositSum(1000, 48, 0.10));
+
