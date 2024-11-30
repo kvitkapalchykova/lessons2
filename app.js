@@ -1,15 +1,31 @@
-function logName(name, surname){
-    console.log(`Моє ім'я ${name} ${surname}`);
-}
-logName('Світлана', 'Пальчикова');
+const profession = 'програміст';
 
-function countDepositSum(depositInUSD, month, rate){
-    const sum = depositInUSD * (1 + rate / 12) ** month;
-    return sum;
+if(profession === 'програміст'){
+    console.log('суперово!');
+}else{
+    console.log('не добре(');
 }
 
-const example1 = countDepositSum(1000, 24, 0.12);
-console.log(example1);
+if(profession === 'програміст'){
+    console.log('суперово!');
+}else if(profession === 'продавець'){
+    console.log('непогано');
+}else{
+    console.log('йди вчися!');
+}
 
-console.log(countDepositSum(1000, 48, 0.10));
+const pets = 'Боня';
 
+switch (true){
+    case pets === 'Боня':
+        console.log('наш грубий улюбленець)');
+        break;
+    case pets === 'Кіса':
+        console.log('скажена губарівська Кісанька');
+        break;
+    case pets === 'Тузік':
+        console.log('наша охорона))');
+        break;
+    default:
+        console.log('заведи домашнього улюбленця!');
+}
