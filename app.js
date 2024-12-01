@@ -1,29 +1,16 @@
-function add(x, y){
-    console.log(x + y);
+//звичйна функція
+function powerOfTwo(num){
+    return num * num;
 }
-add(1, 1);
-add(1, 2);
-add(1, 3);
-add(1, 4);
+console.log(powerOfTwo(5)); //буде 25
 
-function minus(x, y){
-    console.log(x - y);
+//анонімна функція
+const poft = function (num){
+    return num * num;
 }
-minus(0, 1);
-minus(1, 1);
-minus(2, 1);
-minus(3, 1);
+console.log(poft(6)); //буде 36 
 
-function multiply(x, y){
-    console.log(x * y);
-}
-multiply(1, 1);
-multiply(1, 2);
-multiply(1, 3);
+/*стрілкова функція
+const poft = num => num * num;
 
-function division(x, y){
-    console.log(x / y);
-}
-division(1, 1);
-division(2, 1);
-division(3, 1);
+console.log(poft(6)); */
