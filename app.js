@@ -1,31 +1,29 @@
-const profession = 'програміст';
-
-if(profession === 'програміст'){
-    console.log('суперово!');
-}else{
-    console.log('не добре(');
+function add(x, y){
+    console.log(x + y);
 }
+add(1, 1);
+add(1, 2);
+add(1, 3);
+add(1, 4);
 
-if(profession === 'програміст'){
-    console.log('суперово!');
-}else if(profession === 'продавець'){
-    console.log('непогано');
-}else{
-    console.log('йди вчися!');
+function minus(x, y){
+    console.log(x - y);
 }
+minus(0, 1);
+minus(1, 1);
+minus(2, 1);
+minus(3, 1);
 
-const pets = 'Боня';
-
-switch (true){
-    case pets === 'Боня':
-        console.log('наш грубий улюбленець)');
-        break;
-    case pets === 'Кіса':
-        console.log('скажена губарівська Кісанька');
-        break;
-    case pets === 'Тузік':
-        console.log('наша охорона))');
-        break;
-    default:
-        console.log('заведи домашнього улюбленця!');
+function multiply(x, y){
+    console.log(x * y);
 }
+multiply(1, 1);
+multiply(1, 2);
+multiply(1, 3);
+
+function division(x, y){
+    console.log(x / y);
+}
+division(1, 1);
+division(2, 1);
+division(3, 1);
