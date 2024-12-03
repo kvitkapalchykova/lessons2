@@ -1,31 +1,17 @@
-console.log(typeof '') //string
-console.log(typeof "Kvitka") //string
-console.log(typeof 5) //number
-console.log(typeof 0) //number
-console.log(typeof (3)) //number
+/*тут я трохи забігла наперед виявляється, просто повторила приклад та хотіла запитати тебе, шо тут відбувається)*/
 
-let car
-console.log(car); //undefined
+switch (new Date().getDay()){
+    case 6:
+        console.log('сьогодні субота');
+        break;
+    case 0:
+        console.log('сьогодні неділя');
+        break;
+    default:
+        console.log('з нетерпінням чекаю вихідних');
+}
 
-car = undefined
-console.log(typeof car) //undefined
+const date = new Date();
+console.log(date);//отримати поточний час
 
-let = null
-console.log(typeof null) //objekt
-
-let a = 16 + 'Volvo'
-console.log(a); //16Volvo
-console.log(typeof a); //string
-
-let b = '16' + 'Volvo'
-console.log(b); //16Volvo
-
-let e = 'Volvo' + 16
-console.log(e); //Volvo16
-
-let c = 16 + 4 + 'Volvo'
-console.log(c); //20Volvo
-
-let d = 'Volvo' + 16 + 4
-console.log(d); //Volvo164
-console.log(typeof d); //string
+/*оце методи, я вражена! я спочатку не зрозуміла як то, бо ще не вивчала дати,побачила на прикладі switch та й думаю "як то працює")*/ 
