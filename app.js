@@ -1,17 +1,11 @@
-/*тут я трохи забігла наперед виявляється, просто повторила приклад та хотіла запитати тебе, шо тут відбувається)*/
+/*створіть інструкцію swith,яка буде виводити "Hello",якщо fruits є "banana" та "Welcome",якщо fruits є "apple":*/
 
-switch (new Date().getDay()){
-    case 6:
-        console.log('сьогодні субота');
+const fruits = "Banana"; //"Apple"другий варіант
+switch(fruits){
+    case "Banana":
+        console.log("Hello");
         break;
-    case 0:
-        console.log('сьогодні неділя');
-        break;
-    default:
-        console.log('з нетерпінням чекаю вихідних');
+    case "Apple":
+        console.log("Welcome");
+    break;
 }
-
-const date = new Date();
-console.log(date);//отримати поточний час
-
-/*оце методи, я вражена! я спочатку не зрозуміла як то, бо ще не вивчала дати,побачила на прикладі switch та й думаю "як то працює")*/ 
