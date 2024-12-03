@@ -1,11 +1,8 @@
-/*створіть інструкцію swith,яка буде виводити "Hello",якщо fruits є "banana" та "Welcome",якщо fruits є "apple":*/
+/*створити інструкцію if,щоб вивести "Hello World",якщо x більше, ніж y.*/
 
-const fruits = "Banana"; //"Apple"другий варіант
-switch(fruits){
-    case "Banana":
-        console.log("Hello");
-        break;
-    case "Apple":
-        console.log("Welcome");
-    break;
+const x = 5;
+const y = 1;
+
+if (x > y){
+    console.log("Hello World");
 }
