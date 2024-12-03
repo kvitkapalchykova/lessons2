@@ -1,16 +1,31 @@
-//звичйна функція
-function powerOfTwo(num){
-    return num * num;
-}
-console.log(powerOfTwo(5)); //буде 25
+console.log(typeof '') //string
+console.log(typeof "Kvitka") //string
+console.log(typeof 5) //number
+console.log(typeof 0) //number
+console.log(typeof (3)) //number
 
-//анонімна функція
-const poft = function (num){
-    return num * num;
-}
-console.log(poft(6)); //буде 36 
+let car
+console.log(car); //undefined
 
-/*стрілкова функція
-const poft = num => num * num;
+car = undefined
+console.log(typeof car) //undefined
 
-console.log(poft(6)); */
+let = null
+console.log(typeof null) //objekt
+
+let a = 16 + 'Volvo'
+console.log(a); //16Volvo
+console.log(typeof a); //string
+
+let b = '16' + 'Volvo'
+console.log(b); //16Volvo
+
+let e = 'Volvo' + 16
+console.log(e); //Volvo16
+
+let c = 16 + 4 + 'Volvo'
+console.log(c); //20Volvo
+
+let d = 'Volvo' + 16 + 4
+console.log(d); //Volvo164
+console.log(typeof d); //string
