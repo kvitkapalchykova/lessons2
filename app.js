@@ -1,8 +1,5 @@
-let name = prompt("моє ім'я?", "Квітка");
-alert(name);
+function calculator(x, y){
+    console.log(x + y, x - y, x * y, x / y);
+}
 
-let age = prompt("скільки мені років?", "39");
-alert(age);
-
-let isBoss = confirm("Я тут головна?");
-alert(isBoss);
+calculator(1, 2);
