@@ -1,21 +1,31 @@
-function calculator(x, y, z){
-    if(z === '+'){
-        console.log(x + y)
-    }else if(z === '-'){
-        console.log(x - y)
-    }else if(z === '*'){
-        console.log(x * y)
-    }else if(z === '/'){
-        console.log(x / y)
-    }else{
-        console.log('Шукай помилку!')
-    }
-}
+const num = 3;
+console.log(num);
 
-calculator(1, 1, '+');
-calculator(2, 1, '-');
-calculator(2, 2, '*');
-calculator(1, 1, '/');
-calculator(2, 3, '')
+let a = 10;
+let b = 2;
+console.log(a + b, a - b, a * b, a / b);
 
-console.log(parseInt('ljg123'))
+let c = 10;
+let d = 2;
+let e = 5;
+console.log(c + d + e);
+
+let x = 17;
+let z = 10;
+let y = x - z;
+console.log(y);
+
+const str = 'Привіт, Світ!';
+console.log(str);
+
+const str1 = 'Привіт,';
+const str2 = 'Світ!';
+console.log(str1 + str2);
+console.log(`${str1} ${str2}`);
+
+const name = 'Квітка';
+console.log(`Привіт, ${name} !`);
+
+const age = 39;
+console.log(`Мені ${age} років!`);
+
