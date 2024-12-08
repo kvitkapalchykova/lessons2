@@ -1,31 +1,37 @@
-const num = 3;
-console.log(num);
+let a = 0;
 
-let a = 10;
-let b = 2;
-console.log(a + b, a - b, a * b, a / b);
+if(a == 0){ //варіанти 1, 0, -3
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
 
-let c = 10;
-let d = 2;
-let e = 5;
-console.log(c + d + e);
+if(a > 0){
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
 
-let x = 17;
-let z = 10;
-let y = x - z;
-console.log(y);
+if(a <= 0){
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
 
-const str = 'Привіт, Світ!';
-console.log(str);
+if(a != 0){
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
 
-const str1 = 'Привіт,';
-const str2 = 'Світ!';
-console.log(str1 + str2);
-console.log(`${str1} ${str2}`);
+if(a = 'test'){ //'test','тест',3
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
 
-const name = 'Квітка';
-console.log(`Привіт, ${name} !`);
-
-const age = 39;
-console.log(`Мені ${age} років!`);
-
+if(a === '1'){ //варіанти '1', 1, 3
+    console.log('Вірно!');
+}else{
+    console.log('Невірно!');
+}
