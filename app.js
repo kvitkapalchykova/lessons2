@@ -1,24 +1,29 @@
-let age = 39;
+// Змінні та їх типи :
 
-function adultWebsite(a){
-    if(a > 18){
-        console.log('Доступ відкритий');
-    }else{
-        console.log('Немає доступу!')
-    }
-}
-adultWebsite(40);//Доступ відкритий
-adultWebsite(20);//Доступ відкритий
+x = 5;//змінна без ключового слова 
+console.log(x);//5 виконується!
 
-age = 16;
-console.log(age);
-adultWebsite(age);//Немає доступу!
+const age = 39;//number
+const name = 'Квітка';//string
 
+let b;//змінна без типу
+console.log(typeof b)//undefined
 
-let name
-function myName(myname){
-    name = myname;
-    return name;
-}
-myName('Kvitka');
-console.log(name);
+const y = false; // або true
+console.log(typeof y);//booleaan
+
+const value = null;//вкладене пусте значення
+console.log(typeof value);//objekt
+
+// перетврення(конвертація) типів:
+let num = '18';
+console.log(typeof num);//string
+
+num = Number('18');
+console.log(typeof num);//number
+
+num = String(20);
+console.log(typeof num);//string
+
+const a = 7 + '1';//число + рядок ==
+console.log(typeof a);//string
