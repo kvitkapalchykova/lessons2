@@ -1,16 +1,36 @@
 //спроба писати калькулятор
 function plus(x,y){
-    return(x + y);
+    if(typeof x === 'number' && typeof y === 'number'){
+        return x + y;
+    }else{
+        return 'це не число';
+    }
 }
+
  function minus(x,y){
-    return(x - y);
+    if(typeof x === 'number' && typeof y === 'number'){
+        return x - y;
+    }else{
+        return 'це не число';
+    }
  }
+
  function multy(x,y){
-    return(x * y);
+    if(typeof x === 'number' && typeof y === 'number'){
+        return x * y;
+    }else{
+        return 'це не число';
+    }
  }
+
  function divide(x,y){
-    return(x / y);
+    if(typeof z === 'number' && typeof y === 'number'){
+        return x / y;
+    }else{
+        return 'це не число';
+    }
  }
+ 
  function calc(x,y,z){
     if(z === '+'){
         return plus(x,y);
@@ -21,7 +41,7 @@ function plus(x,y){
     }else if(z === '/'){
         return divide(x,y);
     }else{
-        console.log('Error!');
+        return "Це не математичний оператор!";
     }
  }
- console.log(calc(1,3,'+'))//debug
+ console.log(calc(1, 3,'+'))//debug
