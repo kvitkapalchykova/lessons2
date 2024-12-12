@@ -1,46 +1,27 @@
-//спроба написати калькулятор
-function plus(x, y, z){
-    z = '+';
-    console.log(Number(x) + Number(y));
+//спроба писати калькулятор
+function plus(x,y){
+    return(x + y);
 }
-plus(1,1,'+');
-
-function minus(x, y, z){
-    z = '-';
-    console.log(Number(x) - Number(y));
-}
-minus(4, 1, '-');
-
-function multi(x, y, z){
-    z = '*';
-    console.log(Number(x) * Number(y));
-} 
-multi (2, 3, '*');
-
-function divide(x, y, z){
-    z = '/';
-    console.log(Number(x) / Number(y));
-}
-divide(10, 2, '/');
-
-function calk(plus, minus, multi, divide){
-    switch(calk){
-        case plus:
-            console.log('Виконуємо додовання');
-            break;
-        case minus:
-            console.log('Виконуємо віднімання');
-            break;
-        case multi:
-            console.log('Виконуємо множення');
-            break;
-        case divide:
-            console.log('Виконуємо ділення');
-            break;
-        default:
-            console.log('Уважно, помилка!!!');
+ function minus(x,y){
+    return(x - y);
+ }
+ function multy(x,y){
+    return(x * y);
+ }
+ function divide(x,y){
+    return(x / y);
+ }
+ function calc(x,y,z){
+    if(z === '+'){
+        return plus(x,y);
+    }else if(z === '-'){
+        return minus(x,y);
+    }else if(z === '*'){
+        return multy(x,y);
+    }else if(z === '/'){
+        return divide(x,y);
+    }else{
+        console.log('Error!');
     }
-}
-//перевірка:
-divide(2,1,);
-calk();
+ }
+ console.log(calc(1,3,'+'))//debug
