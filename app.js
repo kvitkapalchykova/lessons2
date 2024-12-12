@@ -1,29 +1,46 @@
-// Змінні та їх типи :
+//спроба написати калькулятор
+function plus(x, y, z){
+    z = '+';
+    console.log(Number(x) + Number(y));
+}
+plus(1,1,'+');
 
-x = 5;//змінна без ключового слова 
-console.log(x);//5 виконується!
+function minus(x, y, z){
+    z = '-';
+    console.log(Number(x) - Number(y));
+}
+minus(4, 1, '-');
 
-const age = 39;//number
-const name = 'Квітка';//string
+function multi(x, y, z){
+    z = '*';
+    console.log(Number(x) * Number(y));
+} 
+multi (2, 3, '*');
 
-let b;//змінна без типу
-console.log(typeof b)//undefined
+function divide(x, y, z){
+    z = '/';
+    console.log(Number(x) / Number(y));
+}
+divide(10, 2, '/');
 
-const y = false; // або true
-console.log(typeof y);//booleaan
-
-const value = null;//вкладене пусте значення
-console.log(typeof value);//objekt
-
-// перетврення(конвертація) типів:
-let num = '18';
-console.log(typeof num);//string
-
-num = Number('18');
-console.log(typeof num);//number
-
-num = String(20);
-console.log(typeof num);//string
-
-const a = 7 + '1';//число + рядок ==
-console.log(typeof a);//string
+function calk(plus, minus, multi, divide){
+    switch(calk){
+        case plus:
+            console.log('Виконуємо додовання');
+            break;
+        case minus:
+            console.log('Виконуємо віднімання');
+            break;
+        case multi:
+            console.log('Виконуємо множення');
+            break;
+        case divide:
+            console.log('Виконуємо ділення');
+            break;
+        default:
+            console.log('Уважно, помилка!!!');
+    }
+}
+//перевірка:
+divide(2,1,);
+calk();
