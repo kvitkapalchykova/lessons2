@@ -30,8 +30,9 @@ function plus(x,y){
         return 'це не число';
     }
  }
- 
- function calc(x,y,z){
+
+ function calc(x = 0,y = 0,z){
+
     if(z === '+'){
         return plus(x,y);
     }else if(z === '-'){
@@ -45,3 +46,8 @@ function plus(x,y){
     }
  }
  console.log(calc(1, 3,'+'))//debug
+ // варіанти помилок:
+ console.log(calc(u, 7,'-'))//якщо увели невизначену змінну
+ console.log(calc())//якщо не уведені параметри
+ console.log(calc(1,'i','/'))//якщо замість одного числа увели іншу дію
+ console.log(calc(2, 4,))//якщо не уведений математичний оператор
