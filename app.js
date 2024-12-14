@@ -1,53 +1,23 @@
-//спроба писати калькулятор
-function plus(x,y){
-    if(typeof x === 'number' && typeof y === 'number'){
-        return x + y;
-    }else{
-        return 'це не число';
-    }
+//зовнішні змінні в функціях взаємодіють:
+let userName = 'Квітка';
+
+function showMessage(){
+    let message = 'Привіт,' + userName;
+    console.log(message);
 }
+showMessage();//Привіт,Квітка
 
- function minus(x,y){
-    if(typeof x === 'number' && typeof y === 'number'){
-        return x - y;
-    }else{
-        return 'це не число';
-    }
- }
+//функція має повний доступ до зовнішньої змінної та може змінювати її:
+let userName = 'Світлана';
 
- function multy(x,y){
-    if(typeof x === 'number' && typeof y === 'number'){
-        return x * y;
-    }else{
-        return 'це не число';
-    }
- }
+function showMessage(){
+    userName = 'Сергій';//змінено зовнішню змінну
 
- function divide(x,y){
-    if(typeof z === 'number' && typeof y === 'number'){
-        return x / y;
-    }else{
-        return 'це не число';
-    }
- }
+    /*let userName = 'Сергій' -якщо оголосити локальну змінну(let) у самій функції,то вона має перевагу та виконається всередині, а зовнішня змінна не зміниться(залишиться Світлана)*/ 
 
- function calc(x = 0,y = 0,z){
-
-    if(z === '+'){
-        return plus(x,y);
-    }else if(z === '-'){
-        return minus(x,y);
-    }else if(z === '*'){
-        return multy(x,y);
-    }else if(z === '/'){
-        return divide(x,y);
-    }else{
-        return "Це не математичний оператор!";
-    }
- }
- console.log(calc(1, 3,'+'))//debug
- // варіанти помилок:
- console.log(calc(u, 7,'-'))//якщо увели невизначену змінну
- console.log(calc())//якщо не уведені параметри
- console.log(calc(1,'i','/'))//якщо замість одного числа увели іншу дію
- console.log(calc(2, 4,))//якщо не уведений математичний оператор
+    let message = 'Здоровенькі були, ' + userName;
+    console.log(message);
+}
+console.log(userName);//Світлана до оголошення функції 
+showMessage();//Здоровенькі були, Сергій
+console.log(userName);//Сергій після оголошення функції
