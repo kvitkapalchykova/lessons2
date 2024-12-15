@@ -17,9 +17,11 @@ function sweeping(milf = true){
     }
 }
 
-function cleaning(){
+function cleaning(rag, milf){
+    const washing = washing();
+    const sweeping = sweeping();
     
-    if (washing() === true){
+    if (washing()=== true){
         return 'мию підлогу';
     }else if(sweeping() === true){
         return 'підмітаю';
@@ -30,6 +32,7 @@ function cleaning(){
     }
 
 }
+
 console.log(cleaning());//повне прибирання
 console.log(washing());
 console.log(sweeping());
