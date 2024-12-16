@@ -1,31 +1,31 @@
 // washing
 // sweeping
 // cleaning
+
 function washing(rag = true){
-    if(rag){
-        return 'добре';
-    }else{
-        return 'треба придбати ганчірку'
-    }
+    //тернарний оператор може бути важкий для розуміння
+    return rag === true ? true : false
 }
 
 function sweeping(milf = true){
+    //для лаконічності коду ліпше використовувати булевий оператор
     if (milf){
-        return 'супер';
+        return true;
     }else{
-        return 'треба придбати віник'
+        return false;
     }
 }
 
 function cleaning(rag, milf){
-    const washing = washing();
-    const sweeping = sweeping();
+//використовуємо константу для швидшого виконання коду
+    const wash = washing(rag);
+    const sweep = sweeping(milf);
     
-    if (washing()=== true){
+    if (wash && !sweep){
         return 'мию підлогу';
-    }else if(sweeping() === true){
+    }else if(sweep && !wash){
         return 'підмітаю';
-    }else if(washing() && sweeping()){
+    }else if(wash && sweep){
         return 'повне прибирання';
     }else{
         return "я нечемна,чоловік наб`є дупу "
@@ -33,9 +33,11 @@ function cleaning(rag, milf){
 
 }
 
-console.log(cleaning());//повне прибирання
-console.log(washing());
-console.log(sweeping());
+console.log(cleaning(true,false));//мию підлогу
+console.log(cleaning(false,true));//підмітаю
+console.log(cleaning(true,true));//повне прибирання
+console.log(cleaning(false,false));//я нечемна, чоловік наб'є дупу
+
 
 // функція, яка збирає вси решта
 // main() 
