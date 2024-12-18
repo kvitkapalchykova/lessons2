@@ -1,54 +1,69 @@
 const months = ['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
 
-//forEach() -метод перебрати масив
-months.forEach(month => console.log(month)); 
+const number = [10,20,30,40,50,60,70,80,90,100]
 
-console.log('array.forEach')
+console.dir(months)
+
+function random(x = 0,y=0){
+    return Math.random(x * y)
+}
+
+console.log(random(2,3))
+console.log(random(2,3))
+console.log(random(2,3))
+
+
+months.forEach(month => console.log(month))
+
+console.log('')
 
 months.forEach(function(month){
     console.log(month)
 })
 
+console.log('')
+
+/* 
+function trulala(item){
+    console.log(item)
+}
+
+months.forEach(trulala(item)) 
+*/
+
+number.forEach(num => console.log(num))
+
+console.log('')
+
+number.forEach(function(num){
+    console.log(num * 2)
+})
+
+// функція, яка додає до ціни 10%
+function plus10persent(price){
+    return price / 100 * 10 + price
+}
+
 console.log('for: ')
 
-let i = 100
-// це різні перемінні 
-
-// цикл (перебор)
-for(let i = 0; i<12; i++){
-    // це різні перемінні 
-    console.log(months[i])
+for(let i = 0; i < number.length; i++){
+    console.log(plus10persent(number[i]))
 }
 
-{
-    let i = 200 // це різні перемінні 
+console.log('forEach: ')
+
+number.forEach(num => console.log(plus10persent(num)))
+
+console.log('while: ')
+
+let i = 0
+while(i < number.length){
+    console.log(plus10persent(number[i]))
+    i++
 }
 
-console.log('add number')
+console.log('for of: ')
 
-for(let i = 0; i<=11; i++){
-    // це різні перемінні 
-    console.log(i, months[i])
+for(const num of number){
+    console.log(plus10persent(num))
 }
-
-console.log('кількість елемнетів масиву: ', months.length)
-
-for(let i = 0; i<months.length; i++){
-    // це різні перемінні 
-    console.log(months[i])
-}
-
-console.log('перший елемент масива: ', months[0])
-
-// костил - обмежив довжину масива до 3 елементів. якщо поствивит 0, то масив станепорожнім 
-months.length = 3
-
-console.log(months)
-
-months.length = 15
-
-console.log(months)
-
-console.log(months[5])
-
-console.log(typeof months)
