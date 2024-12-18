@@ -3,20 +3,23 @@
 // sweeping
 // cleaning
 
-function watering(flowers = true, water = true){
+function watering(flowers = false, water = false){
     if(flowers && water){
         return true;
     }else{
         return false;
     }
+
+    //варіант тернарного оператора умови:
+  // return flowers && water === true ? true : false
 }
 
-function washing(rag = true){
+function washing(rag = false){
     //тернарний оператор може бути важкий для розуміння
     return rag === true ? true : false
 }
 
-function sweeping(milf = true){
+function sweeping(milf = false){
     //для лаконічності коду ліпше використовувати булевий оператор
     if (milf){
         return true;
@@ -30,6 +33,8 @@ function cleaning(rag, milf, flowers, water){
     const wat = watering(flowers,water);
     const wash = washing(rag);
     const sweep = sweeping(milf);
+
+    // console.log('debug:', wat, wash, sweep)
 
     switch(true){
     case (!wash && !sweep && wat):
@@ -45,15 +50,16 @@ function cleaning(rag, milf, flowers, water){
     case (!wash && !sweep && !wat):
         return "я нечемна,чоловік наб`є дупу "
     }
-
 }
-console.log(cleaning(false,false,true));//тільки квіти полила
-console.log(cleaning(true,false,true));//мию підлогу та поливаю квіти
-console.log(cleaning(false,true,true));//підмітаю та поливаю квіти
-console.log(cleaning(true,true,false));//повне прибирання,але квіти не политі
-console.log(cleaning(true,true,true))//все зроблено
-console.log(cleaning(false,false,false));//я нечемна, чоловік наб'є дупу
-console.log(watering())//true
+console.log(cleaning(false,false,true,true));//тільки квіти полила
+console.log(cleaning(true,false,true,true));//мию підлогу та поливаю квіти
+console.log(cleaning(false,true,true,true));//підмітаю та поливаю квіти
+console.log(cleaning(true,true,false,true));//повне прибирання,але квіти не политі,бо немає квітів
+console.log(cleaning(true,true,true,false))//повне прибирання, квіти не полила, бо немає води
+console.log(cleaning(true,true,true,true))//все зроблено
+console.log(cleaning(false,false,false,false));//я нечемна, чоловік наб'є дупу
+console.log(watering(true,true))//якщо не передати параметри,то буде автоматично false,оскільки два параметра мають значення по замовчуванню false
+console.log(cleaning())
 
 // функція, яка збирає вси решта
 // main() 
