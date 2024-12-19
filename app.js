@@ -1,27 +1,36 @@
-const months = ['січень','лютий','березень','квітень','травень','червень','липень','серпень','вересень','жовтень','листопад','грудень'];
+const numbers = [10,20,30,40,50,60,70,80,90,100]
 
-const number = [10,20,30,40,50,60,70,80,90,100]
+// додати в кінець
+numbers.push(110)
+
+// жорстко додано елемент у конкретний індекс
+numbers[20] = 150
+
+//жорстко додано елемент у конкретний індекс 
+numbers[30] = 200
+
+for(const number of numbers){
+    console.log(number)
+}
+
+//видаляє та повертає крайнє значення масиву
+let pop = numbers.pop()
+console.log('крайній елемент масива: ', pop)
+
+numbers.forEach(number => console.log(number))
+
+// видаляє та повертає перше значення масиву
+let shift = numbers.shift()
+console.log('перший елемент масива:' , shift)
+
+for(let i = 0; i < numbers.length; i++){
+    console.log(numbers[i])
+}
 
 
-//спроба по памʼяті
+// додає елемент на початок масива
+numbers.unshift(0)
 
-number.forEach(num => console.log(num))
-
-number.forEach(function(num){
-    console.log(num);
+numbers.forEach(function(number){
+    console.log(number)
 })
-
-for(let i = 0; i < number.length; i++ ){
-    console.log(number[i]);
-}
-
-let i = 20;
-while(i > 0){
-    console.log(number[i])
-    i--
-}
-
-for(const num of number){
-    console.log(num)
-}
-
