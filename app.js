@@ -1,33 +1,48 @@
-const numbers = [10,20,30,40,50,60,70,80,90,100]
-
-// this  - вказує на саме ʼцейʼ об'єкт
-// the | a
-
-// map, set, weekmap, weekset 
-// prototype 
-
-/* 
-function trulala(){
-    return this
+function refuel(fuel = false){
+    return fuel === true ? true : false
 }
 
-console.log(typeof trulala(), this)
- */
+function getElectric(electric = false){
+    return electric === true ? true : false
+}
 
-console.log(numbers)
-//видаляє вкінці, після 5-го, 3 елемента 
-numbers.splice(5, 3)
+function startCar (alarms = false, keys = false){
+    return alarms && keys === true ? true : false
+}
 
-console.log(numbers)
-//додає після 6-го такі значення
-numbers.splice(6, 0, 200, 210, 220, 230)
+function driveCar(wheel1 = false,wheel2 = false,wheel3 = false,wheel4 = false){
+    return wheel1 && wheel2 && wheel3 && wheel4 === true ? true : false
+}
 
-console.log(numbers)
-//додає в кінець елементи
-numbers.splice(-1, 0, 300, 310, 320)
+function electronCar(electronics = false){
+    return electronics === true ? true : false
+}
 
-console.log(numbers)
-//додає в кінець елементи
-numbers.splice(numbers.length, 0, 400, 410, 420, 430)
+function car(fuel,electric,alarms,keys,wheel1,wheel2,wheel3,wheel4,electronics){
+    const ref = refuel(fuel)
+    const electr = getElectric(electric)
+    const start = startCar(alarms,keys)
+    const drive = driveCar(wheel1,wheel2,wheel3,wheel4)
+    const electron = electronCar(electronics)
 
-console.log(numbers)
+
+    switch(true){
+        case(ref && electr && start && drive && electron):
+        return 'автомобіль у повній готовності - можна їхати';
+        case(!ref && electr && start && drive && electron):
+        return 'немає пального - треба заправитися';
+        case(ref && electr && start && !drive && electron):
+        return 'перевірити колеса';
+        case(ref && start && drive && (!electr || !electron)):
+        return 'пробеми з електрикою';
+        case(ref && electr && !start && drive && electron):
+        return 'автомобіль не відчиняється'
+    }
+}
+console.log(car(true,true,true,true,true,true,true,true,true))//авто у повній готовносі
+console.log(car(false,true,true,true,true,true,true,true,true))//немає пального
+console.log(car(true,true,true,true,false,true,true,true,true))//перевірити колеса
+console.log(car(true,false,true,true,true,true,true,true,true))//проблеми з електрикою
+console.log(car(true,true,true,true,true,true,true,true,false))//проблеми з електрикою
+console.log(car(true,true,true,false,true,true,true,true,true))//авто не відчиняється
+console.log(car(true,true,false,true,true,true,true,true,true))//авто не відчиняється
