@@ -1,5 +1,10 @@
 function refuel(fuel = false){
-    return fuel === true ? true : false
+    if(fuel === true){
+        return 1
+    }else{
+        return false 
+    }
+   //return fuel === true ? 1 : false
 }
 
 function getElectric(electric = false){
@@ -39,10 +44,27 @@ function car(fuel,electric,alarms,keys,wheel1,wheel2,wheel3,wheel4,electronics){
         return 'автомобіль не відчиняється'
     }
 }
-console.log(car(true,true,true,true,true,true,true,true,true))//авто у повній готовносі
+
+console.log(car(1,true,true,true,true,true,true,true,true))//авто у повній готовносі
 console.log(car(false,true,true,true,true,true,true,true,true))//немає пального
 console.log(car(true,true,true,true,false,true,true,true,true))//перевірити колеса
 console.log(car(true,false,true,true,true,true,true,true,true))//проблеми з електрикою
 console.log(car(true,true,true,true,true,true,true,true,false))//проблеми з електрикою
 console.log(car(true,true,true,false,true,true,true,true,true))//авто не відчиняється
 console.log(car(true,true,false,true,true,true,true,true,true))//авто не відчиняється
+console.log(refuel(true))
+
+
+console.log('------')
+//цикл в зворотньому порядку:
+const arr = ['!', 'Котика', 'кохаю', 'Я'];
+const resultArray = []
+
+for(let i = arr.length -1; i >= 0; i--){
+    console.log(arr[i])
+    resultArray.push(arr[i])
+}
+//метод перетворення циклу в рядок
+console.log(resultArray.join(' '))
+//метод зміни елементів масиву в зворотньому порядку також записано у рядок
+console.log(arr.reverse().join(' '))
