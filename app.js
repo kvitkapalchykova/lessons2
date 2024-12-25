@@ -18,7 +18,7 @@ function toRight(go){
 
 //функція, яка приймає значення цих функцій та виконується в залежності від умов :
 function main(go){
-    
+
     //створюємо масив 
     const array =[]
     //добавляємо в масив значення функцій за допомогою методу
@@ -26,6 +26,12 @@ function main(go){
     array.push(toRight(go))
 
     console.log(array)
+
+    for(let i = 0; i < array.length; 1++){
+        console.log(array[i])
+    }
+
+   // array.forEach(arr => console.log(arr))
 
 }
 
