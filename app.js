@@ -1,3 +1,4 @@
+//функція "йдемо направо" яка повертає 1 або 0 :
 function toLeft(go){
     if(go === 1){
         return 1;
@@ -6,6 +7,7 @@ function toLeft(go){
     }
 }
 
+//функція "йдемо наліво" яка повертає значення 2 або 0 :
 function toRight(go){
     if(go === 2){
         return 2;
@@ -14,25 +16,19 @@ function toRight(go){
     }
 }
 
+//функція, яка приймає значення цих функцій та виконується в залежності від умов :
 function main(go){
-
+    
+    //створюємо масив 
     const array =[]
+    //добавляємо в масив значення функцій за допомогою методу
     array.push(toLeft(go))
     array.push(toRight(go))
 
     console.log(array)
 
-    
-    const go1 = toLeft(go)
-    const go2 = toRight(go)
-
-    switch(go){
-        case 1: return 'йдемо направо';
-        case 2: return 'йдемо наліво';
-        default: 'стоїмо';
-    }
-
 }
+
 console.log(main(1))
 console.log(main(2))
 console.log(main(3))
