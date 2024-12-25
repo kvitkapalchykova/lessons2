@@ -16,6 +16,13 @@ function toRight(go){
 
 function main(go){
 
+    const array =[]
+    array.push(toLeft(go))
+    array.push(toRight(go))
+
+    console.log(array)
+
+    
     const go1 = toLeft(go)
     const go2 = toRight(go)
 
