@@ -20,24 +20,39 @@ function toRight(go){
 function main(go){
 
     //створюємо масив 
-    const array =[]
+    const array = []
+
     //добавляємо в масив значення функцій за допомогою методу
     array.push(toLeft(go))
     array.push(toRight(go))
 
-    console.log(array)
+    //створюємо масив для значення, яке відібрано 
+    // const result = []
 
-    for(let i = 0; i < array.length; 1++){
-        console.log(array[i])
+    //створюємо змінну результату з числом
+    let result = 0
+
+    //відсортовуємо значення 0 в масиві та кладемо вже потрібне число в масив
+    for(let i = 0; i < array.length; i++){
+        if(array[i] !== 0){
+            // result.push(array[i])
+
+            //присвоюємо змінній result елемент масиву array
+            result = array[i]
+        }
     }
 
-   // array.forEach(arr => console.log(arr))
+    //console.log(result)
+
+    //використовуємо swich, щоб виконати певний блок коду в залежності від заданої умови
+    switch(result){
+        case 1: return 'йдемо направо'
+        case 2: return 'йдемо наліво'
+        default: return 'стоїмо'
+    }
 
 }
 
 console.log(main(1))
 console.log(main(2))
 console.log(main(3))
-
-console.log(toLeft(1))//1
-console.log(toRight(2))//2
