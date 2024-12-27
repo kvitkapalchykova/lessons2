@@ -26,29 +26,13 @@ function main(go){
     array.push(toLeft(go))
     array.push(toRight(go))
 
-    //створюємо масив для значення, яке відібрано 
-   // const result = []
-
-    //створюємо змінну результату з числом
-    let result = 0
-
-    //відсортовуємо значення 0 в масиві та кладемо вже потрібне число в масив
-    for(let i = 0; i < array.length; i++){
-        if(array[i] !== 0){
-            //result.push(array[i])
-
-            //присвоюємо змінній result елемент масиву array
-            result = array[i]
-        }
-        //метод, який фільтрує непотрібні елементи масиву 
-       let newArray = array.filter(item => item !==0)
-      console.log(newArray)
-    }
-
-    //console.log(result)
+    //метод, який фільтрує непотрібні елементи масиву та створює новий масив
+    let newArray = array.filter(item => item !==0)
+    
+    console.log(newArray)
 
     //використовуємо swich, щоб виконати певний блок коду в залежності від заданої умови
-    switch(result){
+    switch(go){
         case 1: return 'йдемо направо'
         case 2: return 'йдемо наліво'
         default: return 'стоїмо'
@@ -57,4 +41,4 @@ function main(go){
 
 console.log(main(1))
 console.log(main(2))
-console.log(main(3))
+console.log(main(0))
