@@ -27,7 +27,7 @@ function main(go){
     array.push(toRight(go))
 
     //створюємо масив для значення, яке відібрано 
-    // const result = []
+   // const result = []
 
     //створюємо змінну результату з числом
     let result = 0
@@ -41,17 +41,8 @@ function main(go){
             result = array[i]
         }
         //метод, який фільтрує непотрібні елементи масиву 
-       array.filter(function(arr){
-        if(array[i] !== 0){
-            console.log(array[i])
-        }
-
-       })
-     // array.filter(arr => array[i] !== 0)
-      //console.log(array[i])
-        
-
-
+       let newArray = array.filter(item => item !==0)
+      console.log(newArray)
     }
 
     //console.log(result)
