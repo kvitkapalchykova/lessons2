@@ -28,11 +28,11 @@ function main(go){
 
     //метод, який фільтрує непотрібні елементи масиву та створює новий масив
     let newArray = array.filter(item => item !==0)
-    
+
     console.log(newArray)
 
     //використовуємо swich, щоб виконати певний блок коду в залежності від заданої умови
-    switch(go){
+    switch(newArray[0]){
         case 1: return 'йдемо направо'
         case 2: return 'йдемо наліво'
         default: return 'стоїмо'
