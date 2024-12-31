@@ -1,38 +1,39 @@
-const colors = [];
-colors.push('жовтий')
-colors.push('блактиний')
-colors.push(1)
-colors.push(2)
-colors.push(3)
-colors[5] = 4
-colors[6] = 5
 
-const array = []
-array.push(1)
-array.push(2)
-array.push(3)
-array.push('trulala')
+const arr1 = [1,2,3,4,5]
+const arr2 = ['1 true', '2 false', '3 undefined', '4 null']
 
-const alphabet = ['a', 'b', 'c', 'd']
-
-// функція повинна міняти масив, який ти туди передаєш 
-function moveFirstToLast(arr) {
-    //видаляємо перший елемент масиву та повертаємо його
-    const shift = arr.shift()
-    //додаємо цей видалений елемент в кінець масиву
-    arr.push(shift)
+function fn(arr, flag = true){
+    if(flag){
+        const element = arr.shift()
+        arr.push(element)
+    }else{
+        const element = arr.pop()
+        arr.unshift(element)
+    }
 }
+// по замовчуванню true (можна не писати)
+fn(arr1) // flag === true
+console.log(arr1)
 
-moveFirstToLast(alphabet)
-console.log(alphabet)
-moveFirstToLast(alphabet)
-console.log(alphabet)
-moveFirstToLast(array)
-console.log(array)
+fn(arr2,false)
+console.log(arr2)
 
-// console.log(colors.push(getColors()))
-/*let shift = colors.shift()
-console.log(colors)
+// тому що 1 конвертується в true
+fn(arr2, 1) // flag === true
+console.log(arr2)
 
-colors.push(shift)*/
-// console.log(colors)
+// тому що пустий рядок є false
+fn(arr2,'') // flag === false
+console.log(arr2)
+
+// NaN не число, отже немає значення (false)
+fn(arr1, NaN) // flag === false
+console.log(arr1)
+
+// також 0 не має значення ,отже false
+fn(arr1, 0) // flag === false
+console.log(arr1)
+
+// undefined не має значення -також false
+fn(arr2, undefined) // flag === false
+console.log(arr2)
