@@ -1,39 +1,30 @@
+// Масиви :
+// можна створити пустий масив, а потім додати значення
+const fruits = []
+fruits[0] = 'Banana'
+fruits[1] = 'Orange'
+fruits[2] = 'Apple'
+fruits[3] = 'Mango'
 
-const arr1 = [1,2,3,4,5]
-const arr2 = ['1 true', '2 false', '3 undefined', '4 null']
+console.log(fruits)
 
-function fn(arr, flag = true){
-    if(flag){
-        const element = arr.shift()
-        arr.push(element)
-    }else{
-        const element = arr.pop()
-        arr.unshift(element)
-    }
-}
-// по замовчуванню true (можна не писати)
-fn(arr1) // flag === true
-console.log(arr1)
+// показує кількість елементів масиву
+let length = fruits.length 
+console.log(fruits.length)
 
-fn(arr2,false)
-console.log(arr2)
+// показує перший елемент масиву
+let fruit = fruits[0]
+console.log(fruits[0])
 
-// тому що 1 конвертується в true
-fn(arr2, 1) // flag === true
-console.log(arr2)
+// міняємо перший елемент на інший
+fruits[0] = 'Lemon'
+console.log(fruits)
 
-// тому що пустий рядок є false
-fn(arr2,'') // flag === false
-console.log(arr2)
+// доступ до останнього елементу
+let fruit1 = fruits[fruits.length - 1]
+console.log(fruits[fruits.length -1])
 
-// NaN не число, отже немає значення (false)
-fn(arr1, NaN) // flag === false
-console.log(arr1)
+// додає новий елемент в масив (вкінці)
+fruits[fruits.length] = 'Kiwi'
 
-// також 0 не має значення ,отже false
-fn(arr1, 0) // flag === false
-console.log(arr1)
-
-// undefined не має значення -також false
-fn(arr2, undefined) // flag === false
-console.log(arr2)
+console.log(fruits)
