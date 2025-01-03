@@ -1,23 +1,25 @@
-const f = true
+const fruits = ['Апельсин','Груша', 'Ківі', 'Яблуко']
 
-// function expression (анонімна функція)
-let fn = function(arr, flag = true){
-
+function  moveFirstToLast(arr){
+    arr.push(arr.shift())
 }
 
-
-function return4(x,y){
-    return x + y
+function moveLastToBeginning(arr){
+    arr.unshift(arr.pop())
 }
 
-// function declaraion (іменована функція)
-// фунція колбек (тестувальна)
-function testReturn4(func, x, y){
-    return func(x=0,y=0) * 2
-} 
+function fn(arr, flag = true){
+   if(flag){
+    return moveFirstToLast(arr)
+   }else{
+    return moveLastToBeginning(arr)
+   }
+}
 
-const resultTest = testReturn4(return4)
+fn(fruits,true)
+console.log(fruits)
 
-console.log(resultTest)
+fn(fruits,false)
+console.log(fruits)
 
-// this(диис) посилання на саму себе
+
