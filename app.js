@@ -1,5 +1,7 @@
 const fruits = ['Апельсин','Груша', 'Ківі', 'Яблуко']
 
+const numbers = [1, 2, 3, 4, 5]
+
 function  moveFirstToLast(arr){
     arr.push(arr.shift())
 }
@@ -22,4 +24,9 @@ console.log(fruits)
 fn(fruits,false)
 console.log(fruits)
 
+fn(numbers,true)
+console.log(numbers)
+
+fn(numbers,false)
+console.log(numbers)
 
