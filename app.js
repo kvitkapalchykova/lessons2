@@ -1,54 +1,18 @@
-/**відмінності та зона дії змінних:
- * 
- * змінна,яка оголошена на початку коду,яка може використовуватися у функції та поза неї зветься "глобальною".
- * 
- * змінна,яка оголошена у функції (в зоні фігурних дужок), стає недоспупною поза функцією та зветься "локальною"
- * 
- * 
- * 
- * 
- */
+// функція вищого порядку 
+// повернення функції з функції
 
-// 'use strict'- використовується суворий режим перевірки помилок
-
-function add(a, b){
-    return a + b;
+function power(pow) {
+    return function(num) {
+        return num**pow;
+    }
 }
 
-function subtact(a, b){
-    return a - b;
-}
+const powerOfTwo = power(2)
+console.log(powerOfTwo(5)) // 25
+console.log(powerOfTwo(10)) // 100
 
-function power(a, b){
-    return a ** b;
-}
-// глобальна змінна:
-let res = true
-console.log(res)
+const powerOfThree = power(3)
+console.log(powerOfThree(5)) // 125
 
-// функція вищого порядку з Callback 
-function calculate(a, b, fn){
-    res = fn(a, b);
-    return res;
-}
-
-res = calculate(3, 5, add)
-console.log(res)
-
-res = calculate(3, 5, subtact)
-console.log(res)
-
-res = calculate(3, 5, power)
-console.log(res)
-
-{   
-    // локальна змінна
-    let res = 1
-    console.log(res)
-}
-
-{   
-    // локальна змінна
-    const res = true
-    console.log(res)
-}
+// короткий варіант визову функцій
+console.log(power(2)(5)) // 25
