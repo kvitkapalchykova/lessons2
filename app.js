@@ -1,54 +1,46 @@
-// Методи рядків :
+const fruit1 = []
+fruit1[0] = 'яблучко'
+fruit1[1] = 'грушка'
+fruit1[2] = 'сливка'
+fruit1[3] = 'персик'
 
-let text = 'Hello World';
-// виводить потрібний символ рядка
-console.log(text[0])
-console.log(text[8])
-// виводить 0 символ рядка
-console.log(text.charAt(0))
+const fruit2 = []
+fruit2.push('банан')
+fruit2.push('грушка')
+fruit2.push('ківі')
+fruit2.push('сливка')
 
-// перетворює у верхній регістр
-console.log(text.toUpperCase())
-// нижній регістр
-console.log(text.toLowerCase())
+function compareItems( el1, el2 ) {
+    if (el1 === el2) {
+        return 'співпадає: ' + el1 
+    }else{
+        return 'не співпадає: ' + el1 + ', ' + el2
+    }
+}
 
-// як і в масиві, повертає довжину рядка 
-console.log(text.length)
-
-// показує першу позицію зазначеного тексту чи літери
-console.log(text.indexOf('H')) // 0
-// показує останнє входження тексту в рядок
-console.log(text.lastIndexOf('o')) // 7
-// виводить -1, якщо текст не знайдено
-console.log(text.indexOf('p')) //-1
-
-// повертає true, якщо рядок містить указане значення
-console.log(text.includes('llo')) // true
-// повертає true, якщо рядо починається з такого значення
-console.log(text.startsWith('Hel'))
-// повертає true, якщо рядок закінчується таким значенням
-console.log(text.endsWith('orld'))
-
-// витягує частину рядка та повертає витягнуту частину в новому рядку
-let res = text.slice(5, 9)
-console.log(res)
-// витягує останні 5 значень в рядку
-console.log(text.slice(-5))
-
-// замінює вказане значення іншим значенням у рядку
-let newText = text.replace('Hello', 'Goodbye')
-console.log(newText)
-
-// дублювання рядка
-console.log(text.repeat(5))
-
-// доповнюють рядок відступами на початку
-console.log(text.padStart(20))
-// доповнюють рядок в кінці(чим вказано)
-console.log(text.padEnd(30, '*'))
+console.log( compareItems(fruit1[0], fruit2[0]))
+console.log( compareItems(fruit1[1], fruit2[1]))
+console.log( compareItems(fruit1[2], fruit2[2]))
+console.log( compareItems(fruit1[3], fruit2[3]))
+console.log( compareItems(fruit1[2], fruit2[3]))
+console.log(fruit1)
+console.log(fruit2)
 
 
+function compare( el, arr) {
+    
+   for( let i = 0; i < fruit1.length; i++) {
+        console.log(fruit1[i])
+    }
 
-// задача замаскувати карту
-const card = '23428345034558353';
-console.log(card.slice(-4).padStart(16, '*'));
+    if( el === arr) {
+        return 'є таке співпадіння: ' + el
+    }else{
+        return 'немає такого співпадіння'
+    }
+}
+
+console.log(compare('яблучко', fruit1[0]))
+console.log(compare('яблучко', fruit1[1]))
+console.log(compare('яблучко', fruit1[2]))
+console.log(compare('яблучко', fruit1[3]))
