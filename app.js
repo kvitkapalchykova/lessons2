@@ -29,18 +29,20 @@ console.log(fruit2)
 
 function compare( el, arr) {
     
-   for( let i = 0; i < fruit1.length; i++) {
-        console.log(fruit1[i])
+   for( let i = 0; i < arr.length; i++) {
+        
+        if( el === arr) {
+            return 'є таке співпадіння: ' + el
+        }else{
+            return 'немає такого співпадіння'
+        }
     }
 
-    if( el === arr) {
-        return 'є таке співпадіння: ' + el
-    }else{
-        return 'немає такого співпадіння'
-    }
 }
 
 console.log(compare('яблучко', fruit1[0]))
 console.log(compare('яблучко', fruit1[1]))
 console.log(compare('яблучко', fruit1[2]))
 console.log(compare('яблучко', fruit1[3]))
+console.log(compare('персик', fruit1[3]))
+
