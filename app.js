@@ -31,18 +31,18 @@ function compare( el, arr) {
     
    for( let i = 0; i < arr.length; i++) {
         
-        if( el === arr) {
+        if( el === arr[i]) {
             return `є таке співпадіння: ${el}`
         }else{
-            return `немає такого співпадіння: ${el} , ${arr}`
+            return `немає такого співпадіння: ${el} , ${arr[i]}`
         }
     }
 
 }
 
-console.log(compare('яблучко', fruit1[0]))
-console.log(compare('яблучко', fruit1[1]))
-console.log(compare('яблучко', fruit1[2]))
-console.log(compare('яблучко', fruit1[3]))
-console.log(compare('персик', fruit1[3]))
+console.log(compare('яблучко', fruit1))
+console.log(compare('яблучко', fruit1))
+console.log(compare('яблучко', fruit1))
+console.log(compare('грушка', fruit1))
+console.log(compare('персик', fruit1))
 
