@@ -32,9 +32,9 @@ function compare( el, arr) {
    for( let i = 0; i < arr.length; i++) {
         
         if( el === arr) {
-            return 'є таке співпадіння: ' + el
+            return `є таке співпадіння: ${el}`
         }else{
-            return 'немає такого співпадіння'
+            return `немає такого співпадіння: ${el} , ${arr}`
         }
     }
 
