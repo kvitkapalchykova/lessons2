@@ -26,23 +26,25 @@ console.log( compareItems(fruit1[2], fruit2[3]))
 console.log(fruit1)
 console.log(fruit2)
 
-
-function compare( el, arr) {
+function compare( word, arr ) {
+    // створюємо перемінну з пустим значенням,в яку будуть додаватися відповідні результати умови if :
+    let string = ''
     
    for( let i = 0; i < arr.length; i++) {
         
-        if( el === arr[i]) {
-            return `є таке співпадіння: ${el}`
-        }else{
-            return `немає такого співпадіння: ${el} , ${arr[i]}`
+        if( word === arr[i]) {
+            string += `є таке співпадіння: ${word} \n`
+            // string = string + `є таке співпадіння: ${word} \n`
+        } else {
+            string += `немає такого співпадіння: ${word} - ${arr[i]}\n`
+            // string = string + `немає такого співпадіння: ${word} - ${arr[i]}\n`
         }
     }
+    return string
 
 }
 
 console.log(compare('яблучко', fruit1))
-console.log(compare('яблучко', fruit1))
-console.log(compare('яблучко', fruit1))
 console.log(compare('грушка', fruit1))
-console.log(compare('персик', fruit1))
-
+console.log(compare('персик+', fruit1))
+console.log(compare('ківі', fruit2))
