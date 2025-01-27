@@ -1,33 +1,55 @@
-// 'яблучко' -- нульовий елемент (нульовий індекс
-const fruits = [ 'яблучко', 'грушка', 'банан', 'мандарин' ]
+// Math.min()
+// Math.max()
 
-console.log('нульовий індекс, перший елемент: ', fruits.indexOf('яблучко')) // 0 (нульовий індекс, перший елемент)
+const array = [1, 4, -88, 7, -23, 95, 54, -2, 76, 33, 90, -41]
 
-const vegetables = [ 'бульба', 'морква', 'бурячок', 'цибуля' ]
-const shopping = []
+/*
+// 1 variant (optimal)
+array.sort( (a,b) => a - b)
 
-function combine ( arr1, arr2, arrReduce ) {
+console.log(array[0], array[array.length-1])
+*/
 
-   /* for ( let i = 0; i < arr1.length; i++ ) {
-        arrReduce.push(arr1[i], arr2[i])
-    }*/
+/////////////////////////
+// 2 variant
 
-   /* let i = 0;
-    while( i < arr1.length ) {
-        arrReduce.push( arr1[i], arr2[i])
-        i++
-    }*/
+function min(){
+    // якщо крайні елемент масива є менший за передостанній
+    if(array[array.length-1] < array[array.length-2]){
+        // видаляємо передостанній
+        array.splice(-2, 1) 
 
-    for( const el of arr1 ) {
-        arrReduce.push( el, arr2[arr1.indexOf(el)])
+    // інакше 
+    } else {
+        // видаляємо крайній
+        array.splice(-1, 1)
     }
 
-    return arrReduce
+    if(array.length > 1){
+        min()
+    } 
 }
 
-console.log( combine(fruits, vegetables, shopping))
+min()
 
-for(const fruit of fruits){
-    shopping.push(fruit, vegetables[fruits.indexOf(fruit)])
+console.log(array)
+/*
+//
+function max() {
+    if(array[array.length-1] > array[array.length-2]){
+        array.splice(-2, 1) 
+        // 
+    } else {
+        array.splice(-1, 1) 
+        // 
+    }
+console.log(array)
+
+    if(array.length > 1){
+        max()
+    } 
 }
-console.log(shopping)  
+max()
+
+console.log(array)
+*/
