@@ -1,55 +1,22 @@
-// Math.min()
-// Math.max()
+'use strict'
 
-const array = [1, 4, -88, 7, -23, 95, 54, -2, 76, 33, 90, -41]
+// методи, які шукають елементи з заданим тегом і повертають колекцію цих елементів :
+const p = document.getElementsByTagName('p')
 
-/*
-// 1 variant (optimal)
-array.sort( (a,b) => a - b)
+console.log(p)
 
-console.log(array[0], array[array.length-1])
-*/
+const p1 = document.querySelectorAll('p')
 
-/////////////////////////
-// 2 variant
+console.log(p1)
 
-function min(){
-    // якщо крайні елемент масива є менший за передостанній
-    if(array[array.length-1] < array[array.length-2]){
-        // видаляємо передостанній
-        array.splice(-2, 1) 
+p1.forEach(p => p.className='blue' )
 
-    // інакше 
-    } else {
-        // видаляємо крайній
-        array.splice(-1, 1)
-    }
-
-    if(array.length > 1){
-        min()
-    } 
+//p.forEach(p => p.className='blue' )
+for( let i = 0; i < p.length; i++) {
+    
+    p[i].classList.add('strong')
+    p[i].classList.add('size20')
 }
 
-min()
-
-console.log(array)
-/*
-//
-function max() {
-    if(array[array.length-1] > array[array.length-2]){
-        array.splice(-2, 1) 
-        // 
-    } else {
-        array.splice(-1, 1) 
-        // 
-    }
-console.log(array)
-
-    if(array.length > 1){
-        max()
-    } 
-}
-max()
-
-console.log(array)
-*/
+p[1].className='red'
+p[2].classList.remove('strong')
