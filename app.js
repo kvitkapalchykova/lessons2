@@ -1,22 +1,16 @@
 'use strict'
 
-// методи, які шукають елементи з заданим тегом і повертають колекцію цих елементів :
-const p = document.getElementsByTagName('p')
+const log = console.log 
 
-console.log(p)
-
-const p1 = document.querySelectorAll('p')
-
-console.log(p1)
-
-p1.forEach(p => p.className='blue' )
-
-//p.forEach(p => p.className='blue' )
-for( let i = 0; i < p.length; i++) {
-    
-    p[i].classList.add('strong')
-    p[i].classList.add('size20')
+// ванільний джаваскрипт, нативний
+const par = document.querySelectorAll('p')
+for(let i = 0; i<par.length; i++){
+    par[i].className = 'red'
 }
+log(par)
 
-p[1].className='red'
-p[2].classList.remove('strong')
+
+// бібліотека джейквері
+log($('p').addClass('blue'))
+log($('p').removeClass('red'))
+
