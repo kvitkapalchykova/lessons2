@@ -1,52 +1,52 @@
 'use strict'
 
-const log = console.log 
+const numbers = [1, 2, 3, 4, 5]
+const squared = numbers.map(num => num * num)
 
-// ванільний джаваскрипт, нативний
-const par = document.querySelectorAll('p')
-for(let i = 0; i<par.length; i++){
-    par[i].className = 'red'
+console.log(squared)
+
+
+function createCounter() {
+    let count = 0;
+
+    return function() {
+        return ++count;
+    }
 }
-log(par)
+const counter = createCounter()
+console.log(counter()) // 1
+console.log(counter()) // 2
 
+/* 
+setTimeout(() => {
+    console.log('спрацювало через 10 секунд!')
+}, 10000);
 
-// бібліотека джейквері
-log($('p').addClass('blue'))
-log($('p').removeClass('red'))
+setTimeout(() => {
+    console.log('спрацювало через 15 секунд!')
+}, 15000);
+ */
+jQuery('p').click(function(){
+    $('p').addClass('red')
+    // $(this).addClass('blue')
 
-/* $("p").click(function(){
-  $(this).hide();
-}); */
-
-/*$('strong').hover(function(){
-    $(this).css('color', 'orange');
+    // this.className = 'blue'
+    // this.classList.toggle('green')
+    $(this).toggleClass('green')
 })
 
-$('strong').click(function(){
-    $(this).css('color', 'black');
-})*/
-
-// міняє колір на оранж при наведенні миші
-document.querySelectorAll('strong').forEach(el => {
-
-    el.addEventListener('mouseenter', function() {
-        this.style.color = 'orange'
-    })
+$('button').click(function(){
+    $(this).hide()
 })
 
-// міняє колір на чорний при натисканні миші 
-document.querySelectorAll('strong').forEach(el => {
+const result = $('#result')
+let text = ''
 
-    el.addEventListener('click', function(){
-        this.style.color = 'black'
-    })
-})
+window.addEventListener("keydown", (e) => {
+    
+    text += e.key // сюди дописує
 
-// міняє колір на яскраво-зелений при відведенні миші від елементу
-document.querySelectorAll('strong').forEach(el => {
+    result.html(text) // перезаписує
 
-    el.addEventListener('mouseout', function(){
-        this.style.color = 'cyan'
-    })
-
+    console.log(text)
 })
