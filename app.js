@@ -1,40 +1,18 @@
 // 'use strict'
 
-const log = console.log
+const text = 'захоплення'
+const array = text.split("")
+console.log(array)
 
-function getThis(){
-    return this
+const rewerseArray = array.reverse()
+console.log(rewerseArray)
+
+const joinArray = rewerseArray.join('')
+console.log(joinArray)
+
+
+let newText = ""
+for (let i = text.length-1; i >= 0; i--) {
+    newText += text[i]
 }
-
-console.log(getThis())
-
-const obj = {
-    name: 'Object 1',
-    age: 42,
-    getThis
-}
-
-console.log(obj.getThis())
-
-console.dir(window)
-
-console.dir(String)
-
-console.dir(Number)
-
-console.dir(console)
-
-const obj2 = {
-    name: 'Object 2',
-    age: 18,
-    getThis
-}
-
-console.log(obj2.getThis())
-
-// this -- вказівник на поточний об'єкт
-
-// глобальний об'єкт window
-// window - document, window - console
-// втрата this буває через втрату контексту, тобто втрата розуміння місцезнаходження 
-
+console.log(newText)
