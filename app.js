@@ -1,52 +1,40 @@
-'use strict'
+// 'use strict'
 
-const numbers = [1, 2, 3, 4, 5]
-const squared = numbers.map(num => num * num)
+const log = console.log
 
-console.log(squared)
-
-
-function createCounter() {
-    let count = 0;
-
-    return function() {
-        return ++count;
-    }
+function getThis(){
+    return this
 }
-const counter = createCounter()
-console.log(counter()) // 1
-console.log(counter()) // 2
 
-/* 
-setTimeout(() => {
-    console.log('спрацювало через 10 секунд!')
-}, 10000);
+console.log(getThis())
 
-setTimeout(() => {
-    console.log('спрацювало через 15 секунд!')
-}, 15000);
- */
-jQuery('p').click(function(){
-    $('p').addClass('red')
-    // $(this).addClass('blue')
+const obj = {
+    name: 'Object 1',
+    age: 42,
+    getThis
+}
 
-    // this.className = 'blue'
-    // this.classList.toggle('green')
-    $(this).toggleClass('green')
-})
+console.log(obj.getThis())
 
-$('button').click(function(){
-    $(this).hide()
-})
+console.dir(window)
 
-const result = $('#result')
-let text = ''
+console.dir(String)
 
-window.addEventListener("keydown", (e) => {
-    
-    text += e.key // сюди дописує
+console.dir(Number)
 
-    result.html(text) // перезаписує
+console.dir(console)
 
-    console.log(text)
-})
+const obj2 = {
+    name: 'Object 2',
+    age: 18,
+    getThis
+}
+
+console.log(obj2.getThis())
+
+// this -- вказівник на поточний об'єкт
+
+// глобальний об'єкт window
+// window - document, window - console
+// втрата this буває через втрату контексту, тобто втрата розуміння місцезнаходження 
+
