@@ -1,58 +1,43 @@
 'use strict'
 
-const obj = {
-    start: '<table>',
-    temp: '',
-    finish: '</table>',
-    counter: 0,
-    i: 1,
-    array: [ 
-        'Брати́ Гадю́кіни —', 
-        'культовий український рок-гурт', 
-        'створений влітку 1988 року у Львові', 
-        'Був однією з перших українських рок-команд', 
-        'що здобули широку популярність на теренах колишнього СРСР', 
-        'За час свого існування', 
-        'музичний колектив випустив 5 студійних альбомів', 
-        '4 концертних альбоми та 2 збірки хітів', 
-        'дав велику кількість концертів не лише в Україні', 
-        'але й в країнах Європи і Північної Америки']
+// простий приклад використання замикання
+function outerFunction() {
+    const outerVariable = 'Привіт, я змінна із зовнішньої функції !'
+
+    function innerFunction() {
+        console.log(outerVariable)
+    }
+    return innerFunction
 }
 
-function objFunc(){
+const myFunction = outerFunction()
+myFunction()
 
-    if(obj.counter < obj.array.length){
 
-        obj.temp += '<tr><td>' + obj.i + '</td><td>' + obj.array[obj.counter] + '</td></tr>'
+// лічильник за допомогою замикання
+function createCounter() {
+    let count = 0
 
-        obj.i++
-
-        obj.counter++
+    return function() {
+        count++
+        console.log(count)
     }
-
-    $('#output').html(obj.start + obj.temp + obj.finish)
-
-    // console.log(obj.counter === obj['counter'])
 }
 
+const counter = createCounter()
+counter() // 1
+counter() // 2
 
-// $('button').on('click', objFunc)
+// ще варіант замикання
+function outer() {
+    const message = 'Hello, '
 
-// $('h1').on('mouseover', objFunc)
-
-// const A = document.querySelector.bind(document)
-// console.log(A('button'))
-
-document.querySelector('button').addEventListener('click', function(){
-
-    if(obj.counter < obj.array.length){
-
-        obj.temp += '<tr><td>' + obj.i + '</td><td>' + obj.array[obj.counter] + '</td></tr>'
-
-        obj.i++
-
-        obj.counter++
+    function inner(name) {
+        console.log(message + name)
     }
+    return inner
+}
 
-    document.querySelector('#output').innerHTML = obj.start + obj.temp + obj.finish
-})
+const greet = outer()
+greet('Kvitka')
+greet('Palchyk')
