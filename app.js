@@ -1,43 +1,24 @@
 'use strict'
 
-// простий приклад використання замикання
-function outerFunction() {
-    const outerVariable = 'Привіт, я змінна із зовнішньої функції !'
-
-    function innerFunction() {
-        console.log(outerVariable)
+const user = {
+    name: 'Kvitka',
+    surname: 'Palchycova',
+    age: 39,
+    skills: [
+        'Програмування',
+        'Кулінарія'
+    ],
+    getFullName: function() {
+        return this.name + ' ' + this.surname;
     }
-    return innerFunction
-}
+};
 
-const myFunction = outerFunction()
-myFunction()
+console.log(user)
+console.log(user.name)
+console.log(user.skills[0])
+console.log(user['skills'])
 
+user.sity = 'Харків'
+console.log(user)
 
-// лічильник за допомогою замикання
-function createCounter() {
-    let count = 0
-
-    return function() {
-        count++
-        console.log(count)
-    }
-}
-
-const counter = createCounter()
-counter() // 1
-counter() // 2
-
-// ще варіант замикання
-function outer() {
-    const message = 'Hello, '
-
-    function inner(name) {
-        console.log(message + name)
-    }
-    return inner
-}
-
-const greet = outer()
-greet('Kvitka')
-greet('Palchyk')
+console.log(user.getFullName())
