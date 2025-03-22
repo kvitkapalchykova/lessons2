@@ -1,77 +1,72 @@
 'use strict'
+const log = console.log
 
-const person = {
-    firstName: 'John',
-    lastName: 'Doe',
-    language: '',
-    set(lang) {
-        this.language = lang;
-    }
-};
+// пошук елементів масиву :
+const roles = ['user', 'admin', 'manager']
 
-person.lang = 'en'
-console.log(person.lang)
-console.log(person)
+const elIndex = roles.indexOf('admin')
+log(elIndex) // 1
+const elIndex2 = roles.indexOf('superuser')
+log(elIndex2) // -1
 
-
-
-const array = [ 1, 3, 'nums', function(){return 2}, person, null, { a: 'd'}]
-
-console.log(array[3]())
-console.log(array[4].lastName)
-console.log(array[5])
-console.log(array[6].a)
-console.log(array[6]['a'])
-
-console.log(array)
-
-// отримати останні елементи :
-console.log(array[array.length -1])
-console.log(array.at(-1))
-//метод pop() також повертає останній елемент масиву,але також змінює масив, видаляючи його :
-console.log(array.pop())
-
-// додаємо новий елемент в кінець :
-console.log(array.push('Kvitka'))
-//console.log(array[array.length] = 'Kvitka')
-
-// пербір масиву за допомогою циклу :
-for (let arr of array) {
-    console.log(arr)
+if(roles.indexOf('manager') >= 0) {
+    log('Доступ є')
 }
 
-/*for (let i = 0; i < array.length; i++) {
-    console.log(array[i])
-}*/
+log(roles.includes('admin')) // true
+log(roles.includes('superuser')) // false
 
-const num = [1,2,3,4,5]
+if(roles.includes('admin')) {
+    log('Доступ є')
+}
 
-// масиви реалізують метод toString, який повертає список елементів розділених комою :
-console.log(String(num))
+// сортування масиву :
+const arr = [1, 2, 3, 4, 5]
 
-// в цьому прикладі масив також конвертується в рядок :
-console.log([] + 1) // 1
-console.log([2] + 1) // 21
-console.log([1,2] + 1) // 1,21
-
-
-const styles = ["Jazz", "Blues"]
-
-styles.push("Rock-n-Roll")
-styles[1] = "Classics"
-
-// Замініть значення в середині масиву на “Classics”. Ваш код для пошуку медіанного елемента має працювати для будь-яких масивів непарної довжини.
-styles[Math.floor((styles.length - 1) / 2)] = "Classics";
-
-const elementStyles = styles.shift()
-console.log(elementStyles)
-
-styles.unshift("Rap", "Reggae")
-console.log(styles)
-
-const array1 = ['a', 'b']
-array1.push(function() {
-     return this;
-     // alert(this) ?
+/*arr.sort(function(a, b) {
+    return a - b;
 })
-console.log(array1[2]())
+log(arr)*/
+
+arr.sort( (a, b) => b - a );
+log(arr)
+
+arr.reverse()
+log(arr)
+
+const result = arr.reduce( (sum, current) => sum + current, 0)
+log(result) // 15
+
+// перетворити на myShortString :
+const str = 'my-short-string'
+
+function camelize(str) {
+    return str
+        .split('-')
+        .map(
+            (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slise(1)
+        )
+        .join('');
+}
+log(str) // ?
+
+// трансформувати в масив імен :
+const ivan = { name: "Іван", age: 25 }
+const petro = { name: "Петро", age: 30 }
+const mariya = { name: "Марія", age: 28 }
+
+const users = [ ivan, petro, mariya ]
+const names = users.map(item => item.name)
+log(names) // ['Іван', 'Петро', 'Марія']
+
+// трансформувати в об'єкти :
+const ivan1 = { name: "Іван", surname: "Іванко", id: 1 }
+const petro1 = { name: "Петро", surname: "Петренко", id: 2 }
+const mariya1 = { name: "Марія", surname: "Мрійко", id: 3 }
+
+const users1 = [ ivan1, petro1, mariya1 ]
+const usersMapped = users1.map(user => ({
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id
+}));
+log(usersMapped)
