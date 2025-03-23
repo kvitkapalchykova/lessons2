@@ -1,72 +1,67 @@
 'use strict'
 const log = console.log
 
-// пошук елементів масиву :
-const roles = ['user', 'admin', 'manager']
-
-const elIndex = roles.indexOf('admin')
-log(elIndex) // 1
-const elIndex2 = roles.indexOf('superuser')
-log(elIndex2) // -1
-
-if(roles.indexOf('manager') >= 0) {
-    log('Доступ є')
+// використання this в об'єктному літералі:
+function makeUser() {
+    return {
+        name: "Сергій",
+        ref() {
+            return this;
+        }
+    };
 }
 
-log(roles.includes('admin')) // true
-log(roles.includes('superuser')) // false
+let user = makeUser();
 
-if(roles.includes('admin')) {
-    log('Доступ є')
-}
+log(user.ref().name) // Сергій
 
-// сортування масиву :
-const arr = [1, 2, 3, 4, 5]
+// 
+const calkulator = {
+    read() {
+         this.a = +prompt( 'перше число?', 0 );
+         this.b = +prompt( 'друге число?', 0 );
+    },
+    sum() {
+        return this.a + this.b;
+    },
+    mul() {
+        return this.a * this.b;
+    },
+};
 
-/*arr.sort(function(a, b) {
-    return a - b;
-})
-log(arr)*/
+calkulator.read()
+log(calkulator.sum())
+log(calkulator.mul())
 
-arr.sort( (a, b) => b - a );
-log(arr)
+// ланцюг викликів :
+// об'єкт ladder дозволяє підійматися вгору-вниз :
+const ladder = {
+    step: 0,
+    up() {
+        this.step++;
+        return this;
+    },
+    down() {
+        this.step--;
+        return this;
+    },
+    showStep() { // показує поточний крок
+        alert( this.step );
+        return this;
+    }
+};
 
-arr.reverse()
-log(arr)
+/*log(ladder.up())
+log(ladder.up())
+log(ladder.down())
+log(ladder.showStep())
+log(ladder.down())
+log(ladder.showStep())*/
 
-const result = arr.reduce( (sum, current) => sum + current, 0)
-log(result) // 15
-
-// перетворити на myShortString :
-const str = 'my-short-string'
-
-function camelize(str) {
-    return str
-        .split('-')
-        .map(
-            (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slise(1)
-        )
-        .join('');
-}
-log(str) // ?
-
-// трансформувати в масив імен :
-const ivan = { name: "Іван", age: 25 }
-const petro = { name: "Петро", age: 30 }
-const mariya = { name: "Марія", age: 28 }
-
-const users = [ ivan, petro, mariya ]
-const names = users.map(item => item.name)
-log(names) // ['Іван', 'Петро', 'Марія']
-
-// трансформувати в об'єкти :
-const ivan1 = { name: "Іван", surname: "Іванко", id: 1 }
-const petro1 = { name: "Петро", surname: "Петренко", id: 2 }
-const mariya1 = { name: "Марія", surname: "Мрійко", id: 3 }
-
-const users1 = [ ivan1, petro1, mariya1 ]
-const usersMapped = users1.map(user => ({
-    fullName: `${user.name} ${user.surname}`,
-    id: user.id
-}));
-log(usersMapped)
+ladder
+    .up()
+    .up()
+    .down()
+    .showStep()
+    .down()
+    .showStep()
