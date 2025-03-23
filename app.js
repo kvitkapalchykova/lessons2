@@ -1,67 +1,37 @@
 'use strict'
 const log = console.log
 
-// використання this в об'єктному літералі:
-function makeUser() {
-    return {
-        name: "Сергій",
-        ref() {
-            return this;
-        }
-    };
+const audi = {
+    make: 'Audi',
+    model: 'A3',
+    year: 2021,
+    damages: [],
+    addDamage( part,rate ) {
+        log(`У авто ${this.make} ${this.model} ${this.year} додано - пошкодження: ${part}, ступінь: ${rate}`)
+        this.damages.push({
+            part,
+            rate
+        })
+    }
+}
+audi.addDamage('Капот',1)
+
+const bmw = {
+    make: 'BMW',
+    model: 'X5',
+    year: 2022,
+    damages: [],
 }
 
-let user = makeUser();
+bmw.addDamage = audi.addDamage;
+//bmw.addDamage('Бампер', 2)
 
-log(user.ref().name) // Сергій
+const addDamageFunc = audi.addDamage;
 
-// 
-const calkulator = {
-    read() {
-         this.a = +prompt( 'перше число?', 0 );
-         this.b = +prompt( 'друге число?', 0 );
-    },
-    sum() {
-        return this.a + this.b;
-    },
-    mul() {
-        return this.a * this.b;
-    },
-};
+// метод call приймає аргументи окремо :
+addDamageFunc.call(bmw, 'Бампер', 2)
 
-calkulator.read()
-log(calkulator.sum())
-log(calkulator.mul())
+// метод apply приймає аргументи як масив :
+addDamageFunc.apply(bmw, ['Капот', 1])
+addDamageFunc.apply(audi, ['Бампер', 2])
 
-// ланцюг викликів :
-// об'єкт ladder дозволяє підійматися вгору-вниз :
-const ladder = {
-    step: 0,
-    up() {
-        this.step++;
-        return this;
-    },
-    down() {
-        this.step--;
-        return this;
-    },
-    showStep() { // показує поточний крок
-        alert( this.step );
-        return this;
-    }
-};
-
-/*log(ladder.up())
-log(ladder.up())
-log(ladder.down())
-log(ladder.showStep())
-log(ladder.down())
-log(ladder.showStep())*/
-
-ladder
-    .up()
-    .up()
-    .down()
-    .showStep()
-    .down()
-    .showStep()
