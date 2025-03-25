@@ -1,21 +1,23 @@
 'use strict'
 const log = console.log
 
-const audi = {
-    make: 'Audi',
-    model: 'A3',
-    damages: [],
-};
-
-const carManipulation = {
-    addDamage(part, rate) {
-        this.damages.push({ part, rate});
-        log(`Додати пошкодження на ${this.make} ${this.model}`)
+// функція скидання пароля :
+function removePassword(reset) {
+    if (reset) {
+        this.password = undefined;
+    } else {
+        this.password = '1';
     }
 }
 
-// метод bind, який запозичує метод :
-const addDamageAudi = carManipulation.addDamage.bind(audi)
+const user = {
+    login: 'kvitka.ua',
+    password: '12345'
+};
 
-addDamageAudi('Крило', 3)
-log(audi)
+log(user)
+// використовуєм bind() щоб примінити метод(функцію) до об'єкту user :
+const resetUserPassword = removePassword.bind(user, true)
+resetUserPassword()
+
+log(user)
