@@ -1,51 +1,18 @@
-'use strict'
-const log = console.log
+// оператори присвоєння :
+let age = 18 + 5 ;
+age += 2 // age = age + 2
+age -= 3 // age = age - 2
+age *= 2 // age = age * 2
+age /= 2 // age = age / 2
 
-// замикання :
-function changeBalanse() {
-    let balanse = 0;
+age++ // age = age + 1
+age-- // age = age - 1
+console.log(age)
 
-    return function(sum) {
-        balanse += sum;
-        log(`Баланс: ${balanse}`);
-    }
-}
-
-const change = changeBalanse()
-change(100) // 100
-change(-50) // 50
-change(200) // 250
-
-
-// замикання з об'єктами :
-const userInfo = {
-    balanse: 0,
-    operations: 0,
-    increse(sum) {
-        this.balanse += sum;
-        this.operations++;
-    }
-}
-
-function user() {
-    const userObj = {
-        balanse: 0,
-        operations: 0,
-        increse(sum) {
-            this.balanse += sum;
-            this.operations++; 
-        }
-    };
-    return function() {
-        return userObj;
-    }
-}
-
-const user1 = user()
-user1().increse(100)
-user1().increse(100)
-log(user1())
-
-const user2 = user()
-user2().increse(100)
-log(user2())
+// оператори порівняння :
+const kvitka = 40
+console.log(age > kvitka)
+console.log(age >= kvitka)
+console.log(age < kvitka)
+console.log(age <= kvitka)
+console.log(age == kvitka)
