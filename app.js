@@ -1,18 +1,18 @@
-// оператори присвоєння :
-let age = 18 + 5 ;
-age += 2 // age = age + 2
-age -= 3 // age = age - 2
-age *= 2 // age = age * 2
-age /= 2 // age = age / 2
+// Шаблонні рядки :
+const projectName = 'сайт магазину';
+const price = 2000;
+const author = 'Квітка Пальчикова';
 
-age++ // age = age + 1
-age-- // age = age - 1
-console.log(age)
+const template = author + ' замовила ' + projectName + ' за ціною ' + price + '$'
+console.log(template);
 
-// оператори порівняння :
-const kvitka = 40
-console.log(age > kvitka)
-console.log(age >= kvitka)
-console.log(age < kvitka)
-console.log(age <= kvitka)
-console.log(age == kvitka)
+const template2 = `${author} замовила ${projectName} за ціною ${price}$`
+console.log(template2)
+
+// спосіб переносу в стовпчик :
+const template3 = 'Проєкт \n' + 'Ціна: ' + price + '$';
+console.log(template3)
+
+const template4 = `Проєкт
+Ціна: ${price}$`;
+console.log(template4)
