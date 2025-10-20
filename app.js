@@ -1,18 +1,13 @@
-// Шаблонні рядки :
-const projectName = 'сайт магазину';
-const price = 2000;
-const author = 'Квітка Пальчикова';
+// Булева логіка, логічні та тернарні оператори :
+const balance = 1200
+const bonusBalance = 90
+const isBanned = false
+const isExist = false
+const isSelling = true
 
-const template = author + ' замовила ' + projectName + ' за ціною ' + price + '$'
-console.log(template);
+const canBuy = (balance > 1000 || bonusBalance > 100) 
+    && !isBanned
+    && !isExist
+    && isSelling;
 
-const template2 = `${author} замовила ${projectName} за ціною ${price}$`
-console.log(template2)
-
-// спосіб переносу в стовпчик :
-const template3 = 'Проєкт \n' + 'Ціна: ' + price + '$';
-console.log(template3)
-
-const template4 = `Проєкт
-Ціна: ${price}$`;
-console.log(template4)
+console.log(`Можу купити гру: ${canBuy ? 'Так' : 'Ні'}`)
