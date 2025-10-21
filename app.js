@@ -1,13 +1,17 @@
-// Булева логіка, логічні та тернарні оператори :
-const balance = 1200
-const bonusBalance = 90
-const isBanned = false
-const isExist = false
-const isSelling = true
+const log = console.log
 
-const canBuy = (balance > 1000 || bonusBalance > 100) 
-    && !isBanned
-    && !isExist
-    && isSelling;
-
-console.log(`Можу купити гру: ${canBuy ? 'Так' : 'Ні'}`)
+// Перетворення типу :
+log("" + 1 + 0) // "10"
+log("" - 1 + 0) // -1
+log(true + false) // 1
+log(6 / "3") // 2
+log("2" * "3") // 6
+log(4 + 5 + "px") // "9px"
+log("$" + 4 + 5) // "$45"
+log("4" - 2) // 2
+log("4px" - 2) // NaN
+log(" -9 " + 5) // " -9 5"
+log(" -9 " - 5) // -14
+log(null + 1) // 1
+log(undefined + 1) // NaN
+log(" \t \n "- 2) // -2
