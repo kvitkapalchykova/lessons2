@@ -17,3 +17,5 @@ log(toPower(2, 3))
 
 const toPowerArrow = (num, power) => num * power
 log(toPowerArrow(2, 3))
+
+// comment
