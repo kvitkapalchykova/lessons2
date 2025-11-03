@@ -1,21 +1,16 @@
 const log = console.log
 
-function powerOfTwo(num) {
-    return num * num;
-}
-log(powerOfTwo(5))
-
-const poft = (num) => num * num; 
-log(poft(5))
-
-
-function toPower(num, power){
-    const res = num * power;
-    return res;
-}
-log(toPower(2, 3))
-
-const toPowerArrow = (num, power) => num * power
-log(toPowerArrow(2, 3))
-
-// comment
+log(true == 1) //true
+log(false == 0) //true
+log(null == 0) //false
+log(null === 0) //false
+log(undefined > 0) //false
+log(undefined < 0) //false
+log(undefined == 0) //false
+log(undefined == null) //true
+log(undefined === null) //false
+log(5 > 4) //true
+log("ананас" > "яблуко") //false
+log("2" > "12") //true
+log(null == "\n0\n") //false
+log(null === +"\n0\n") //false
