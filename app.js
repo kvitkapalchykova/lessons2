@@ -1,49 +1,37 @@
 const log = console.log
 
-let age = 17
-/*let mesage = (age < 3) ? 'Привіт, крихітко!' :
-    (age < 18) ? 'Вітаю!' :
-    (age < 100) ? 'Моє шанування!' :
-    'Який невизначений вік!';
-
-log(mesage)*/
-
-if(age < 3) {
-    log('Привіт, крихітко!'); 
-} else if(age < 18) {
-    log('Вітаю!');
-} else if(age < 100) {
-    log('Моє шанування!');
-} else {
-    log('Який невизначений вік! ');
+let item = 3;
+switch(item) {
+    case 1:
+        log("item = 1");
+    break;
+    case 2:
+        log("item = 2");
+    break;
+    case 3:
+        log("item = 3");
+    break;
+    case 4:
+        log("item = 4");
+    break; 
+    default:
+        log("item інше значення");
 }
 
-let nameJavaScript = 'ECMAScript';
-if(nameJavaScript == 'ECMAScript') {
-    log('Правильно!');
+let age = 15;
+if( age >= 14 && age <= 90) {
+    log('знаходиться між 14 - 90');
 } else {
-    log('Ви не знаєте? ECMAScript!');
+    log('інше значення');
 }
 
-let value = 1;
-if(value > 0) {
-    log(1);
-} else if(value < 0) {
-    log(-1);
+if( age < 14 || age > 90) {
+    log('не знаходиться між 14 - 90');
 } else {
-    log(0);
-} 
+    log('число від 14 - 90'); 
+}
 
-// використання умовного оператора замість умови if :
-let a = 2;
-let b = 3;
-let result = (a + b < 4) ? 'Нижче' : 'Вище';
-log(result)
+if( !(age >= 14 && age <= 90) ) {
+    log('не знаходиться 2 варіант')
+}
 
-let login = '';
-let mesage = (login == 'Працівник') ? 'Привіт' :
-    (login == 'Директор') ? 'Вітаю' :
-    (login == '') ? 'Немає логіну' : 
-     ' '
-
-log(mesage)     
