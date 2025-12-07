@@ -1,37 +1,30 @@
 const log = console.log
 
-let item = 3;
-switch(item) {
-    case 1:
-        log("item = 1");
-    break;
-    case 2:
-        log("item = 2");
-    break;
-    case 3:
-        log("item = 3");
-    break;
-    case 4:
-        log("item = 4");
-    break; 
-    default:
-        log("item інше значення");
+let i = 0;
+while (i < 3) {
+    log(i);
+    i++;
 }
 
-let age = 15;
-if( age >= 14 && age <= 90) {
-    log('знаходиться між 14 - 90');
-} else {
-    log('інше значення');
+let k = 0;
+do {
+    log(k);
+    k++;  
+} while (k < 3);
+
+//вивести непарні значення:
+for (let i = 0; i < 10; i++) {
+    if (i % 2 == 0) continue
+    log(i)
 }
 
-if( age < 14 || age > 90) {
-    log('не знаходиться між 14 - 90');
-} else {
-    log('число від 14 - 90'); 
+//вивести парні числа:
+for (let i = 2; i <= 10; i++) {
+    if(i % 2 == 0){
+        log(i)
+    }    
 }
 
-if( !(age >= 14 && age <= 90) ) {
-    log('не знаходиться 2 варіант')
-}
+
+
 
