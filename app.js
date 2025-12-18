@@ -2,26 +2,30 @@
 
 const log = console.log
 
-function showMessage(from, text) {
-    from = '*' + from + '*'; // прикрашаємо 
-    log( from + ': ' + text );
+const fruit = ['яблуко', 'груша', 'банан']
+const colors = ['червоний', 'зелений', 'жовтий']
+const shopping = []
+
+function add( arr1, arr2, arr3 ) {
+    for (let i = 0; i < arr1.length; i++) {
+        arr3.push( arr1[i], arr2[i] )
+    }
 }
+add(fruit, colors, shopping) 
 
-let from = "Ганна";
+log(shopping)
+log(shopping.length)
+log(shopping[shopping.length-1])
+log(shopping[3])
+shopping[shopping.length] = 'ківі'
+shopping.unshift('ананас')
+let shop = shopping.shift()
+log(shop)
+shopping[0] = 0
 
-showMessage(from, "Привіт!")
+shopping.splice(2, 0, 2)
+log(shopping)
+log(shopping.toString())
 
-log(from)
 
-function checkAge(age) {
-    // return (age > 18) ? log(true) : log("Батьки дозволили?");
 
-     return (age > 18) || log("Батьки дозволили?");
-}
-checkAge(15)
-
-// функція,яка повертає менше з двох чисел:
-function min(a, b) {
-    return (a < b) ? a : b;
-}
-log(min(2, -6))
