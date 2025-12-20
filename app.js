@@ -2,30 +2,38 @@
 
 const log = console.log
 
-const fruit = ['яблуко', 'груша', 'банан']
-const colors = ['червоний', 'зелений', 'жовтий']
-const shopping = []
-
-function add( arr1, arr2, arr3 ) {
-    for (let i = 0; i < arr1.length; i++) {
-        arr3.push( arr1[i], arr2[i] )
-    }
+function makeUser(name, age) {
+    return {
+        name,
+        age,
+    };
 }
-add(fruit, colors, shopping) 
 
-log(shopping)
-log(shopping.length)
-log(shopping[shopping.length-1])
-log(shopping[3])
-shopping[shopping.length] = 'ківі'
-shopping.unshift('ананас')
-let shop = shopping.shift()
-log(shop)
-shopping[0] = 0
+let user = makeUser("Квітка", 40);
+log(user.name)
+log(user.age)
+//user = makeUser("Сергій", 48)
+log(user)
 
-shopping.splice(2, 0, 2)
-log(shopping)
-log(shopping.toString())
+//перевірка, чи існує властивість : 
+log("age" in user) //true
+log(user.name === undefined) //false, бо існує
 
+for (let key in user) {
+    log( user[key] ) // Квітка, 40
+   // log( key ) name, age
+}
 
+// перевірка на порожній об'єкт :
+function isEmpty(obj) {
+    for (let key in obj) {
+    //якщо цикл розпочався,властивість є:
+        return false;
+    }
+    return true;
+}
+log( isEmpty() ) //true
 
+let obj = {}
+obj.time = "8:30"
+log( isEmpty(obj) ) //false
