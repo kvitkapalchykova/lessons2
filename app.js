@@ -2,38 +2,30 @@
 
 const log = console.log
 
-function makeUser(name, age) {
-    return {
-        name,
-        age,
-    };
+// сума властивостей об'єкта :
+let salaries = {
+    John: 100,
+    Ann: 160,
+    Pete: 130
 }
-
-let user = makeUser("Квітка", 40);
-log(user.name)
-log(user.age)
-//user = makeUser("Сергій", 48)
-log(user)
-
-//перевірка, чи існує властивість : 
-log("age" in user) //true
-log(user.name === undefined) //false, бо існує
-
-for (let key in user) {
-    log( user[key] ) // Квітка, 40
-   // log( key ) name, age
+let sum = 0;
+for (let key in salaries) {
+    sum += salaries[key];
 }
+log(sum) // 390
 
-// перевірка на порожній об'єкт :
-function isEmpty(obj) {
-    for (let key in obj) {
-    //якщо цикл розпочався,властивість є:
-        return false;
+// примножуємо числові властивості obj на 2:
+let menu = {
+    width: 200,
+    height: 300,
+    title: "Моє меню"
+};
+function multyplyNumeric(obj) {
+    for (let key in obj ) {
+        if (typeof obj[key] ==='number') {
+            obj[key] *= 2;
+        }   
     }
-    return true;
 }
-log( isEmpty() ) //true
-
-let obj = {}
-obj.time = "8:30"
-log( isEmpty(obj) ) //false
+multyplyNumeric(menu) 
+log(menu)
