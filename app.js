@@ -2,22 +2,23 @@
 
 const log = console.log
 
-// клонування об'єкту :
-let user = {
-    name: "Ангеліна",
-    age: 15
+//
+let calculator = {
+    read() {
+        this.a = +prompt('a?', 0);
+        this.b = +prompt('b?', 0);
+    },
+    sum() {
+        return this.a + this.b;
+    },
+    mul() {
+        return this.a * this.b;
+    }
 };
-let clone = {};
+calculator.read()
+log( calculator.sum() )
+log( calculator.mul() )
 
-for ( let key in user) {
-    clone[key] = user[key];
-    log( key + ': ' + clone[key]);
-}
-
-clone.age = 16; // значення змінено
-log(clone)
-log(user.age) // 15
-log(clone.age) // 16 
 
 
 
