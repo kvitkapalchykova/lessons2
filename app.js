@@ -1,14 +1,16 @@
 'use strict';
 
-const user = { name: "Квітка" }
-const admin = { name: "Пальчик" }
-
-function sayHi() {
-    console.log( this.name )
+function User(name) {
+    this.name = name;
+    this.isAdmin = false;
 }
-// використовуємо одну функцію для обох об'єктів : 
-user.f = sayHi
-admin.f = sayHi
 
-user.f() // Квітка ( this == user )
-admin.f() // Пальчик ( this == admin )
+let user = new User("Пальчик")
+
+console.log(user.name)
+console.log(user.isAdmin)
+
+let user2 = new User("Квітка")
+console.log(user2.name)
+console.log(user)
+console.log(user2)
