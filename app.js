@@ -1,66 +1,41 @@
 'use strict';
 
-const styles = ["Jazz", "Blues"]
-console.log(styles)
-styles.push("Rock-n-Roll")
-console.log(styles)
-//Замініть значення в середині масиву на “Classics”. Ваш код для пошуку медіанного елемента має працювати для будь-яких масивів непарної довжини.
-styles[Math.floor((styles.length -1) / 2)] = "Classics"
-// styles[1] = "Classics"
-console.log(styles)
-console.log(styles.shift())
-styles.unshift("Rap", "Reggae")
-console.log(styles)
+let ivan = { name: "Іван", surname: "Іванко", age: 25, id: 1 }
+let petro = { name: "Петро", surname: "Петренко", age: 30, id: 2 }
+let mariya = { name: "Марія", surname: "Мрійко",  age: 28, id: 3 }
+
+let users = [ ivan, petro, mariya ]
+
+let names = users.map(item => item.name)
+
+let ages = users.map(item => item.age)
+
+// створюємо масив з об'єктів :
+let usersMapped = users.map(user => ({
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id
+}))
+
+console.log(names) //["Іван", "Петро", "Марія"]
+console.log(ages) //[25, 30, 28]
+console.log(usersMapped) // [ { fullName: id: }]
+console.log(usersMapped[0].id) // 1
+console.log(usersMapped[0].fullName) // Іван Іванко
 
 
-// перетворюємо рядок в масив та приміняємо цикл:
-let names = 'Вася, Петя, Маша'
-let arr = names.split(', ')
-
-for (let name of arr) {
-    console.log(`Повідомлення отримає ${name}.`)
+//приймаємо масив об'єктів та сортуємо за віком :
+function sortByAge(arr) {
+  arr.sort((a, b) => a.age - b.age);
 }
 
+let ivanka = { name: "Іванка", age: 25 };
+let petr = { name: "Петро", age: 30 };
+let maryna = { name: "Марина", age: 28 };
 
-let cars = [
-    {model: "toyota", price: 1000},
-    {model: "opel", price: 800},
-    {model: "reno", price: 1200}
-];
-let res = cars.find(item => item.price < 1000)
-// виводить перший потрібний елемент
+let arr = [ petr, ivanka, maryna ]
 
-console.log(res) // {model: "opel", price: 800}
+sortByAge(arr)
 
-let res2 = cars.filter(item => item.price < 1200)
-
-console.log(res2) // виведе усі можливі варіанти, які підходять до умови < 1200
-
-
-let array = [1, -2, 15, 2, 0, 8]
-let resSort = array.sort((a, b) => a - b)
-
-console.log(resSort)
-
-
-function cameLize(str) {
-    return str
-    .split('-')
-    .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
-    .join('')
-}
-
-console.log(cameLize('my-long-word')) // myLongWord
-
-
-// для копіювання масиву використовуємо slice() і тут же – сортування:
-function copySorted(arr) {
-    return arr.slice().sort()
-}
-
-let arr1 = ["HTML", "JavaScript", "CSS"]
-
-let sorted = copySorted(arr1)
-
-console.log(sorted)
-console.log(arr1) // початковий масив залишився незміненим
+console.log(arr[0].name) // Іванка(25)
+console.log(arr[1].name) // Марина(28)
+console.log(arr[2].name) // Петро(30)
