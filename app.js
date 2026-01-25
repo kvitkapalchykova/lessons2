@@ -1,18 +1,34 @@
 'use strict';
 
-let users = [
-    {id: 'іван', name: "Іван Іванко", age: 20},
-    {id: 'ганна', name: "Ганна Іванко", age: 24},
-    {id: 'петро', name: "Петро Петренко", age: 31},
-]
+// створення об'єкту звичайним способом:
+const user1 = {
+    name: "Kvitka"
+}
+// отримуємо повну інформацію про властивість :
+let descriptor = Object.getOwnPropertyDescriptor(user1, 'name')
 
-function groupById(array) {
-    return array.reduce((obj, value) => {
-        obj[value.id] = value;
-        return obj;
-    }, {})
+// конвертуємо об'єкт в рядок(стовпчик) :
+console.log(JSON.stringify(descriptor, null, 2)) // усі прапори true
+
+
+
+const user2 = {}
+// створюється властивість name з хибними прапорами :
+Object.defineProperty(user2, "name", {
+    value: "Сергій"
+})
+
+let descriptor2 = Object.getOwnPropertyDescriptor(user2, 'name')
+
+console.log(JSON.stringify(descriptor2, null, 2)) // усі прапори false
+
+
+const user3 = {
+    name: "Пальчик"
 }
 
-let usersById = groupById(users)
+Object.defineProperty(user3, "name", {
+    writable: false // заборона на зміну властивості
+})
 
-console.log(usersById)
+console.log(user3.name = "Сергій") // помилка - неможливо змінити властивість!
