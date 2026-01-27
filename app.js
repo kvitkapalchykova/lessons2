@@ -1,34 +1,45 @@
 'use strict';
 
-// створення об'єкту звичайним способом:
-const user1 = {
-    name: "Kvitka"
-}
-// отримуємо повну інформацію про властивість :
-let descriptor = Object.getOwnPropertyDescriptor(user1, 'name')
+// якщо призначити тільки гетер (без сетера),властивість не можна змінювати :
+const user = {
+    name: "Тарас",
+    surname: "Мельник",
 
-// конвертуємо об'єкт в рядок(стовпчик) :
-console.log(JSON.stringify(descriptor, null, 2)) // усі прапори true
+    get fullName() {
+        return `${this.name} ${this.surname}`;
+    },
 
-
-
-const user2 = {}
-// створюється властивість name з хибними прапорами :
-Object.defineProperty(user2, "name", {
-    value: "Сергій"
-})
-
-let descriptor2 = Object.getOwnPropertyDescriptor(user2, 'name')
-
-console.log(JSON.stringify(descriptor2, null, 2)) // усі прапори false
-
-
-const user3 = {
-    name: "Пальчик"
+    set fullName(value) {
+        [this.name, this.surname] = value.split(" ");
+    }
 }
 
-Object.defineProperty(user3, "name", {
-    writable: false // заборона на зміну властивості
+console.log(user.fullName)
+
+user.fullName = "Аліса Бондар"
+
+console.log(user.name)
+console.log(user.surname)
+
+
+//
+const user2 = {
+    name: "Іван",
+    surname: "Іванов"
+}
+
+Object.defineProperty(user2, 'fullName', {
+    get() {
+        return `${this.name} ${this.surname}`;
+    },
+
+    set(value) {
+        [this.name, this.surname] = value.split(" ");
+    }
 })
 
-console.log(user3.name = "Сергій") // помилка - неможливо змінити властивість!
+console.log(user2.fullName)
+
+for (let key in user2) {
+    console.log(key) // name, surname
+}
