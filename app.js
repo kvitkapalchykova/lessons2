@@ -1,45 +1,48 @@
 'use strict';
 
-// якщо призначити тільки гетер (без сетера),властивість не можна змінювати :
-const user = {
-    name: "Тарас",
-    surname: "Мельник",
-
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    language: "",
+    get lang() {
+        return this.language
+    },
+    set lang(lang) {
+        this.language = lang.toUpperCase()
+    },
     get fullName() {
-        return `${this.name} ${this.surname}`;
-    },
-
-    set fullName(value) {
-        [this.name, this.surname] = value.split(" ");
+        return this.firstName + " " + this.lastName
     }
-}
+} 
 
-console.log(user.fullName)
-
-user.fullName = "Аліса Бондар"
-
-console.log(user.name)
-console.log(user.surname)
+person.lang = "en"
+console.log(person.language)
+console.log(person.fullName)
 
 
-//
-const user2 = {
-    name: "Іван",
-    surname: "Іванов"
-}
 
-Object.defineProperty(user2, 'fullName', {
-    get() {
-        return `${this.name} ${this.surname}`;
-    },
+const obj = { counter: 0 }
 
-    set(value) {
-        [this.name, this.surname] = value.split(" ");
-    }
+Object.defineProperty(obj, "reset", {
+    get: function() { this.counter = 0 }
+})
+Object.defineProperty(obj, "increment", {
+    get: function() { this.counter++}
+})
+Object.defineProperty(obj, "decrement", {
+    get: function() { this.counter--}
+})
+Object.defineProperty(obj, "add", {
+    set: function(value) { this.counter +=value }
+})
+Object.defineProperty(obj, "subtract", {
+    set: function(value) { this.counter -= value }
 })
 
-console.log(user2.fullName)
-
-for (let key in user2) {
-    console.log(key) // name, surname
-}
+console.log(obj)
+console.log(obj.reset)
+console.log(obj.add = 5)
+console.log(obj.subtract = 1)
+console.log(obj.increment)
+console.log(obj.decrement)
+console.log(obj.add = 2)
