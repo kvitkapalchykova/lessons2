@@ -1,33 +1,44 @@
 'use strict';
 
 let animal = {
-    eats: true,
-    walk() {
-        console.log("Тварина йде")
-    }
+    jumps: null
 }
 
 let rabbit = {
+    __proto__: animal,
     jumps: true
 }
-//об’єкт animal встановлюється як прототип для об’єкта rabbit
-rabbit.__proto__ = animal
 
-console.log(rabbit.eats) // true
-console.log(rabbit.jumps) // true
-rabbit.walk() // Тварина йде
+console.log(rabbit.jumps) // true, береться з rrabit
 
+delete rabbit.jumps
 
-let longEar = {
-    earLength: 10,
-    __proto__: rabbit
-}
-// метод walk беремо з ланцюжка прототипів
-longEar.walk() // Тварина йде
-console.log(longEar.jumps) // true
+console.log(rabbit.jumps) // null, береться з animal
 
-// визначаємо власний метод walk для об’єкта rabbit:
-rabbit.walk = function() {
-    console.log("Кролик скік-скік!")
-}
-rabbit.walk() // Кролик скік-скік!
+delete animal.jumps
+
+console.log(rabbit.jumps) // undefined, більше немає такої властивості
+
+let head = {
+  glasses: 1
+};
+
+let table = {
+  pen: 3,
+  __proto__: head
+};
+
+let bed = {
+  sheet: 1,
+  pillow: 2,
+  __proto__: table
+};
+
+let pockets = {
+  money: 2000,
+  __proto__: bed
+};
+
+console.log(pockets.pen) // 3
+console.log(bed.glasses) // 1
+console.log(table.money) // undefined
