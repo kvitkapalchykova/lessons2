@@ -1,44 +1,27 @@
 'use strict';
 
-let animal = {
-    jumps: null
+let hamster = {
+    stomach: [],
+    eat(food) {
+        this.stomach.push(food)
+    }
 }
 
-let rabbit = {
-    __proto__: animal,
-    jumps: true
+let speedy = {
+    __proto__: hamster,
+    stomach: []
 }
 
-console.log(rabbit.jumps) // true, береться з rrabit
+let lazy = {
+    __proto__: hamster,
+    stomach: []
+}
+// Хом’ячок `Speedy` знайшов їжу
+speedy.eat("яблуко")
+console.log(speedy.stomach)
 
-delete rabbit.jumps
+//  Шлунок хом’ячка `Lazy` пустий
+console.log(lazy.stomach)
 
-console.log(rabbit.jumps) // null, береться з animal
-
-delete animal.jumps
-
-console.log(rabbit.jumps) // undefined, більше немає такої властивості
-
-let head = {
-  glasses: 1
-};
-
-let table = {
-  pen: 3,
-  __proto__: head
-};
-
-let bed = {
-  sheet: 1,
-  pillow: 2,
-  __proto__: table
-};
-
-let pockets = {
-  money: 2000,
-  __proto__: bed
-};
-
-console.log(pockets.pen) // 3
-console.log(bed.glasses) // 1
-console.log(table.money) // undefined
+lazy.eat("грушка")
+console.log(lazy.stomach)
