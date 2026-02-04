@@ -1,25 +1,33 @@
 'use strict';
 
-function Person(first, last, age, eye) {
-    this.firstName = first
-    this.lastName = last
-    this.age = age
-    this.eyeColor = eye
-    this.changeName = function(name) {
-        this.lastName = name
+let animal = {
+    eats: true,
+    walk() {
+        console.log("Тварина йде")
     }
-    //this.nationality = "English"
 }
 
-const myFather = new Person("John", "Doe", 50, "blue")
-const myMother = new Person("Sally", "Rally", 48, "green")
+let rabbit = {
+    jumps: true
+}
+//об’єкт animal встановлюється як прототип для об’єкта rabbit
+rabbit.__proto__ = animal
 
-myFather.nationality = "English"
-//Person.nationality = "English"
+console.log(rabbit.eats) // true
+console.log(rabbit.jumps) // true
+rabbit.walk() // Тварина йде
 
-myMother.changeName("Doe")
 
-console.log(Person)
+let longEar = {
+    earLength: 10,
+    __proto__: rabbit
+}
+// метод walk беремо з ланцюжка прототипів
+longEar.walk() // Тварина йде
+console.log(longEar.jumps) // true
 
-console.log(myMother)
-console.log(myFather)
+// визначаємо власний метод walk для об’єкта rabbit:
+rabbit.walk = function() {
+    console.log("Кролик скік-скік!")
+}
+rabbit.walk() // Кролик скік-скік!
