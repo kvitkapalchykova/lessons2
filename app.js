@@ -1,51 +1,38 @@
 'use strict';
 
-let map = new Map()
-
-// можна використовувати будь-які типи даних для ключів :
-map.set('1', 'str1')
-map.set(1, 'num1')
-map.set(true, 'bool1')
-
-console.log(map.get(1)) // 'num1'
-console.log(map.get('1')) // 'str1'
-console.log(map.size) // 3
-
-
-// можна використовувати об’єкти як ключі :
-let kvitka = { name: "Квітка" }
-
-let visitsCountMap = new Map()
-visitsCountMap.set(kvitka, 123)
-
-console.log(visitsCountMap.get(kvitka)) // 123
+let obj = {
+    name: "Сергій",
+    age: 49
+}
+// створюємо Map з об'єкта :
+let map = new Map(Object.entries(obj))
+ 
+console.log(map.get('name'))
+console.log(map)
 
 
-let recipeMap = new Map([
-    ['огірок', 500],
-    ['помідори', 350],
-    ['цибуля', 50]
+// трансформуємо масив пар [ключ, значення] в об’єкт:
+let prices = Object.fromEntries([
+    ['банан', 1],
+    ['апельсин', 2],
+    ['яблуко', 4]
 ])
 
-// перебираємо ключі (овочі) :
-for (let vegetable of recipeMap.keys()) {
-    console.log(vegetable) // огірок, помідори, цибуля
-}
+// тепер prices = { банан: 1, апельсин: 2, яблуко: 4}
+console.log(prices)
+console.log(prices.апельсин) // 2
 
-// перебираємо значення (кількість) :
-for (let amount of recipeMap.values()) {
-    console.log(amount) // 500, 350, 50
-}
 
-// перебір елементів у форматі [ключ, значення]:
-for (let entry of recipeMap) { // те ж саме, що recipeMap.entries()
-    console.log(entry) // ['огірок', 500] і т.д.
-}
+// конвертуємо Map в звичайний об'єкт :
+let map2 = new Map()
+map2.set('банан', 1)
+map2.set('апельсин', 2)
+map2.set('яблуко', 4)
 
-// також має вбудований метод forEach :
-recipeMap.forEach( (value, key, map) => {
-    console.log(`${key}: ${value}`) // огірок: 500...
-})
+let obj2 = Object.fromEntries(map2)
 
+// obj2 = { банан: 1, апельсин: 2, яблуко: 4}
+console.log(obj2)
+console.log(obj2.апельсин) // 2
 
 
