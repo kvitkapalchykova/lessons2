@@ -1,27 +1,51 @@
 'use strict';
 
-let hamster = {
-    stomach: [],
-    eat(food) {
-        this.stomach.push(food)
-    }
+let map = new Map()
+
+// можна використовувати будь-які типи даних для ключів :
+map.set('1', 'str1')
+map.set(1, 'num1')
+map.set(true, 'bool1')
+
+console.log(map.get(1)) // 'num1'
+console.log(map.get('1')) // 'str1'
+console.log(map.size) // 3
+
+
+// можна використовувати об’єкти як ключі :
+let kvitka = { name: "Квітка" }
+
+let visitsCountMap = new Map()
+visitsCountMap.set(kvitka, 123)
+
+console.log(visitsCountMap.get(kvitka)) // 123
+
+
+let recipeMap = new Map([
+    ['огірок', 500],
+    ['помідори', 350],
+    ['цибуля', 50]
+])
+
+// перебираємо ключі (овочі) :
+for (let vegetable of recipeMap.keys()) {
+    console.log(vegetable) // огірок, помідори, цибуля
 }
 
-let speedy = {
-    __proto__: hamster,
-    stomach: []
+// перебираємо значення (кількість) :
+for (let amount of recipeMap.values()) {
+    console.log(amount) // 500, 350, 50
 }
 
-let lazy = {
-    __proto__: hamster,
-    stomach: []
+// перебір елементів у форматі [ключ, значення]:
+for (let entry of recipeMap) { // те ж саме, що recipeMap.entries()
+    console.log(entry) // ['огірок', 500] і т.д.
 }
-// Хом’ячок `Speedy` знайшов їжу
-speedy.eat("яблуко")
-console.log(speedy.stomach)
 
-//  Шлунок хом’ячка `Lazy` пустий
-console.log(lazy.stomach)
+// також має вбудований метод forEach :
+recipeMap.forEach( (value, key, map) => {
+    console.log(`${key}: ${value}`) // огірок: 500...
+})
 
-lazy.eat("грушка")
-console.log(lazy.stomach)
+
+
