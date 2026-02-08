@@ -1,40 +1,22 @@
 'use strict';
 
-function unique(arr) {
-    //поверне всі унікальні значення як масив:
-    return Array.from(new Set(arr))
-}
+// Збережемо прочитані повідомлення у WeakSet:
+let messages = [
+  {text: "Привіт", from: "Сергій"},
+  {text: "Як справи?", from: "Квітка"},
+  {text: "До зустрічі", from: "Аліса"}
+]
 
-let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", ":-0"]
+let readMessages = new WeakSet()
 
-console.log(unique(values))
+//були прочитані два повідомлення :
+readMessages.add(messages[0])
+readMessages.add(messages[1])
+//... знову прочитаємо перше повідомлення :
+readMessages.add(messages[0])
+//readMessage все ще має 2 унікальних елементів
 
+console.log("Прочитано повідомлення 0:" + readMessages.has(messages[0])) // true
 
-
-function aclean(arr) {
-  let map = new Map();
-
-  for (let word of arr) {
-    // розділіть слово на літери, відсортуйте їх та знову з'єднайте
-    let sorted = word.toLowerCase().split('').sort().join(''); 
-    map.set(sorted, word);
-  }
-
-  return Array.from(map.values());
-}
-
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
-
-console.log(aclean(arr))
-
-
-
-let map = new Map()
-
-map.set("name", "John")
-
-let keys = Array.from(map.keys())
-
-keys.push("more")
-
-console.log(keys) // ['name', 'more']
+messages.shift()
+//зараз readMessages має 1 елемент (з технічної точки зору пам’ять може бути очищена пізніше)
