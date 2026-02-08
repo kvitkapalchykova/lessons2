@@ -1,33 +1,40 @@
 'use strict';
 
-let set = new Set()
-
-let ivan = { name: "Іван"}
-let petro = { name: "Петро"}
-let maria = { name: "Марія"}
-
-// підраховуємо гостей, деякі приходять кілька разів :
-set.add(ivan)
-set.add(petro)
-set.add(maria)
-set.add(ivan)
-set.add(maria)
-
-// set зберігає тільки 3 унікальних значення :
-console.log(set.size) // 3
-
-for (let user of set) {
-    console.log(user.name) // "Іван", "Петро", "Марія" - по черзі додавання
+function unique(arr) {
+    //поверне всі унікальні значення як масив:
+    return Array.from(new Set(arr))
 }
 
+let values = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", ":-0"]
 
-//перебір об'єкта Set : 
-let set2 = new Set(["апельсин", "яблука", "банани"])
+console.log(unique(values))
 
-for (let value of set2) {
-    console.log(value) 
+
+
+function aclean(arr) {
+  let map = new Map();
+
+  for (let word of arr) {
+    // розділіть слово на літери, відсортуйте їх та знову з'єднайте
+    let sorted = word.toLowerCase().split('').sort().join(''); 
+    map.set(sorted, word);
+  }
+
+  return Array.from(map.values());
 }
 
-set2.forEach((value, valueAgain, set2) => {
-    console.log(value) 
-})
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+console.log(aclean(arr))
+
+
+
+let map = new Map()
+
+map.set("name", "John")
+
+let keys = Array.from(map.keys())
+
+keys.push("more")
+
+console.log(keys) // ['name', 'more']
