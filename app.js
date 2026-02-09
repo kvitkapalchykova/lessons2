@@ -1,22 +1,53 @@
 'use strict';
 
-// Збережемо прочитані повідомлення у WeakSet:
-let messages = [
-  {text: "Привіт", from: "Сергій"},
-  {text: "Як справи?", from: "Квітка"},
-  {text: "До зустрічі", from: "Аліса"}
-]
+const prices = {
+  banana: 1,
+  orange: 2, 
+  meat: 4
+}
 
-let readMessages = new WeakSet()
+let doublePrices = Object.fromEntries(
+  // перетворити ціни на масив, потім застосувати map, щоб перетворити на пари ключ/значення :
+  // а потім fromEntries повертає об’єкт :
+  Object.entries(prices).map(entry => [entry[0], entry[1] * 2])
+)
 
-//були прочитані два повідомлення :
-readMessages.add(messages[0])
-readMessages.add(messages[1])
-//... знову прочитаємо перше повідомлення :
-readMessages.add(messages[0])
-//readMessage все ще має 2 унікальних елементів
+console.log(doublePrices.meat) // 8
+console.log(doublePrices)
 
-console.log("Прочитано повідомлення 0:" + readMessages.has(messages[0])) // true
 
-messages.shift()
-//зараз readMessages має 1 елемент (з технічної точки зору пам’ять може бути очищена пізніше)
+
+const salaries = {
+  "Іван": 100,
+  "Петро": 300,
+  "Марія": 250
+}
+
+// отримаємо суму всіх зарплат за допомогою Object.values та циклуfor..of.
+function sumSalaries(salaries) {
+
+  let sum = 0
+  for (let salary of Object.values(salaries)) {
+    sum += salary
+  } 
+
+  return sum 
+}
+
+/* варіант 2 : за допомогою reduce перебираємо масив значень salaries,складаємо їх і повертаємо результат :*/
+function sumSalaries(salaries) {
+  return Object.values(salaries).reduce((a, b) => a + b, 0) 
+}
+
+console.log(sumSalaries(salaries)) // 650
+
+
+const user = {
+  name: 'Іван',
+  age: 30
+}
+// визначити кількість властивостей об'єкта :
+function count(obj) {
+  return Object.keys(obj).length
+}
+console.log(count(user)) // 2
