@@ -1,63 +1,33 @@
 'use strict';
 
-const data = new Date()
+// автокорекція :
+let data = new Date(2013, 0, 32)// 32 січня не існує
+console.log(data) // це 1 лютого 2013
 
-console.log(data) // показує поточну дату/час 
+// збільшимо дату на 2 дні :
+data = new Date(2016, 1, 28)
+data.setDate(data.getDate() + 2)
+console.log(data) // 1 березня 2016
 
-// години у поточному часовому поясі :
-console.log(data.getHours())
-
-//  години у часовій зоні UTC+0 (Лондонський час без літніх переводів часу):
-console.log(data.getUTCHours())
-
-// різниця між UTC та місцевим часовим поясом, у хвилинах:
-console.log(data.getTimezoneOffset()) // -120
-
-// Отримати рік (4 цифри) :
-console.log(data.getFullYear()) // 2026
-
-// Отримати місяць, від 0 до 11 :
-console.log(data.getMonth()) // 1 (лютий)
-
-// Отримати день місяця, від 1 до 31 :
-console.log(data.getDate()) 
-
-// день тижня, від 0 (неділя) до 6 (субота) :
-console.log(data.getDay()) 
-
-// отримати годину, хвилини, секунди, мілісекунди :
-console.log(data.getHours())
-console.log(data.getMinutes())
-console.log(data.getSeconds())
-console.log(data.getMilliseconds())
-
-// повертає кількість мілісекунд з 1 січня 1970 року :
-console.log(data.getTime())
+// збільшимо на 50 днів :
+data = new Date()
+data.setDate(data.getDate() + 50)
+console.log(data) // 10 квітня 2026
 
 
+data = new Date(2016, 0, 2) // 2 січня 2016
+data.setDate(1) // встановити 1 день місяця
+console.log(data)
 
-// 0 означає 01.01.1970 UTC+0 :
-let Jan01_1970 = new Date(0)
-console.log(Jan01_1970)
-
-// тепер додамо 24 години, отримаємо 02.01.1970 UTC+0 :
-let Jan02_1970 = new Date(24 * 3600 * 1000)
-console.log(Jan02_1970)
-
-// 31 грудня 1969 року :
-let Dec31_1969 = new Date(-24 * 3600 * 1000)
-console.log(Dec31_1969)
+data.setDate(0)
+console.log(data) // 31 грудня, тому, що мін номер дня - 1,тому передбачається, що це останній день попереднього місяця
 
 
-// Один день (24 години) - це 86 400 000 мілісекунд :
-const d = new Date(86400000)
+data = new Date()
+console.log(+data) // об’єкт перетворюється на номер, він стає timestamp 
+
+// швидший метод отримання timestamp : 
+const d = Date.now()
 console.log(d)
-// Fri Jan 02 1970 03:00:00 GMT+0300 (за східноєвропейським стандартним часом) 
 
-
-let now = new Date("2017-01-26")
-now = new Date(2011, 0, 1, 0, 0, 0, 0)
-now = new Date(2011, 0, 1)
-now = new Date(2011, 0, 1, 2, 3, 4, 567)
-console.log(now)
 
